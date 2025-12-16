@@ -1,147 +1,295 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <title>何亚鹏｜作品集</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>我的作品集</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --primary: #22263a;
+      --accent:  #0076ff;
+      --bg:      #f5f7fa;
+      --card-bg: #fff;
+      --shadow: 0 4px 24px rgba(34,38,58,0.06), 0 1.5px 3px rgba(0,0,0,0.03);
+      --radius:  18px;
+    }
+    html, body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      padding: 0;
+      background: var(--bg);
+      font-family: 'Montserrat', 'PingFang SC', Arial, sans-serif;
+      color: var(--primary);
+      scroll-behavior: smooth;
     }
     header {
-      padding: 80px 20px 60px;
+      background: var(--primary);
+      color: #fff;
+      padding: 0 2vw;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 20px rgba(34,38,58,0.05);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex;
+      gap: 36px;
+    }
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color .2s;
+    }
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      min-height: 60vh;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      background: linear-gradient(135deg, #020617, #020617);
+      padding: 5vw 2vw 2vw 2vw;
+      background: linear-gradient(125deg, #f5f7fa 60%, #e5f0ff 100%);
     }
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin: 0;
+      color: var(--primary);
     }
-    header p {
-      color: #94a3b8;
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 18px;
+    .hero-sub {
+      font-size: 1.4rem;
+      margin: 18px 0 42px 0;
+      color: #4a5274;
+      font-weight: 400;
+      max-width: 550px;
     }
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    h2 {
-      font-size: 28px;
-      border-left: 4px solid #38bdf8;
-      padding-left: 12px;
-      margin-bottom: 32px;
-    }
-    .project {
-      background: #020617;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .project h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-    .tag {
-      display: inline-block;
-      background: #1e293b;
-      color: #7dd3fc;
-      padding: 4px 10px;
+    .btn-main {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 16px 36px;
       border-radius: 999px;
-      font-size: 12px;
-      margin-right: 6px;
-      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background .2s, transform .15s;
     }
-    .project p {
-      color: #cbd5f5;
+    .btn-main:hover {
+      background: #0056b3;
+      transform: translateY(-2px) scale(1.03);
+    }
+    main {
+      padding: 32px 5vw 60px 5vw;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      margin: 12px auto 0;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.2rem;
+      margin-top: 32px;
+    }
+    .portfolio-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: box-shadow .2s, transform .18s;
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio-card:hover {
+      box-shadow: 0 10px 28px rgba(0,118,255,0.12);
+      transform: translateY(-6px) scale(1.02);
+    }
+    .portfolio-image {
+      width: 100%;
+      height: 205px;
+      object-fit: cover;
+      display: block;
+      background: #efefef;
+      transition: opacity .2s;
+    }
+    .portfolio-content {
+      padding: 26px 22px 22px 22px;
+      min-height: 110px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .portfolio-title {
+      font-size: 1.28rem;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+    .portfolio-desc {
+      font-size: 1rem;
+      color: #797e9a;
+      flex: 1;
+      margin-bottom: 0.6em;
+    }
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: color .2s;
+      gap: 4px;
+    }
+    .portfolio-link svg {
+      margin-bottom: -2px;
+      transition: transform .2s;
+      width: 16px; height: 16px;
+    }
+    .portfolio-link:hover svg {
+      transform: translateX(2px);
+    }
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .section-title {font-size: 1.4rem;}
+      .portfolio-content {padding: 18px 12px 16px 12px;}
+      main {padding: 18px 3vw;}
+      .hero-title {font-size: 2rem;}
     }
     footer {
       text-align: center;
-      padding: 40px 20px;
-      color: #64748b;
-      font-size: 14px;
+      color: #7b7e96;
+      padding: 32px 0 20px 0;
+      font-size: .96rem;
+      letter-spacing: .04em;
+      background: transparent;
     }
   </style>
 </head>
 <body>
-
-<header>何亚鹏  <h1>
-  <p>游戏策划 ｜ 大屏体感互动 ｜ 运动训练游戏化设计<br>
-  专注红外触控、骨骼追踪、实体球交互的游戏体验设计</p>
+<header>
+  <span class="logo">HeyE256</span>
+  <nav>
+    <a class="nav-link" href="#portfolio">作品集</a>
+    <a class="nav-link" href="#about">关于我</a>
+    <a class="nav-link" href="#contact">联系方式</a>
+  </nav>
 </header>
-
-<section>
-  <h2>核心项目</h2>
-
-  <div class="project">
-    <h3>⚽ 大屏足球射门体感游戏</h3>
-    <div>
-      <span class="tag">大屏互动</span>
-      <span class="tag">实体球</span>
-      <span class="tag">红外边框</span>
-    </div>
-    <p>
-      玩家站在屏幕外真实射门，通过实体足球击中屏幕球门区域完成判定。
-      游戏包含基础得分、难度得分、守门员扑救与无效球机制，强调真实射门反馈与竞技感。
-    </p>
-    <p><b>负责内容：</b> 核心玩法设计 / 判定逻辑 / 得分规则 / 反馈表现</p>
-  </div>
-
-  <div class="project">
-    <h3>🏃 体感跑酷互动游戏</h3>
-    <div>
-      <span class="tag">体感识别</span>
-      <span class="tag">骨骼追踪</span>
-      <span class="tag">跑酷</span>
-    </div>
-    <p>
-      玩家通过左右移动、跳跃、下蹲控制角色前进，赛道自动滚动。
-      障碍与节奏随时间递进，强调身体反应速度与持续运动体验。
-    </p>
-    <p><b>负责内容：</b> 难度曲线 / 动作判定 / 关卡节奏 / 得分系统</p>
-  </div>
-
-  <div class="project">
-    <h3>🃏 大屏翻卡记忆训练游戏</h3>
-    <div>
-      <span class="tag">记忆训练</span>
-      <span class="tag">实体球</span>
-      <span class="tag">5×5</span>
-    </div>
-    <p>
-      通过击打屏幕翻转卡牌，匹配相同内容即可消除。
-      游戏结合记忆力与准度训练，适用于青少年与全民健身场景。
-    </p>
-    <p><b>负责内容：</b> 规则设计 / 消除逻辑 / 节奏控制</p>
-  </div>
-
+<section class="hero">
+  <h1 class="hero-title">你好，我是 HeyE256 👋</h1>
+  <p class="hero-sub">一名热爱前端与设计的开发者，擅长用现代Web技术打造高品质、富有美感的互动体验。</p>
+  <a href="#portfolio"><button class="btn-main">浏览我的作品</button></a>
 </section>
-
-<section>
-  <h2>关于我</h2>
-  <p>
-    我长期从事大屏体感互动游戏与运动训练内容策划，
-    熟悉红外触控、骨骼识别、实体球判定等技术方案，
-    擅长将传统训练转化为具有游戏目标与反馈的互动体验。
-  </p>
-</section>
-
-<section>
-  <h2>联系方式</h2>
-  <p>📧 邮箱：your@email.com</p>
-  <p>📱 微信：your_wechat</p>
-</section>
-
+<main>
+  <section id="portfolio">
+    <h2 class="section-title">作品集</h2>
+    <div class="portfolio-grid">
+      <!-- 卡片1 -->
+      <div class="portfolio-card">
+        <img class="portfolio-image" src="https://source.unsplash.com/featured/?website" alt="作品1">
+        <div class="portfolio-content">
+          <div>
+            <h3 class="portfolio-title">个人博客平台</h3>
+            <p class="portfolio-desc">基于React和Node.js，支持Markdown编辑、评论、暗色模式的博客系统。</p>
+          </div>
+          <a class="portfolio-link" href="https://github.com/heye256/blog-demo" target="_blank" rel="noopener">
+            查看项目
+            <svg fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- 卡片2 -->
+      <div class="portfolio-card">
+        <img class="portfolio-image" src="https://source.unsplash.com/featured/?ui,app" alt="作品2">
+        <div class="portfolio-content">
+          <div>
+            <h3 class="portfolio-title">UI组件库</h3>
+            <p class="portfolio-desc">一套面向现代Web的响应式UI组件，支持主题切换和无障碍访问。</p>
+          </div>
+          <a class="portfolio-link" href="https://github.com/heye256/uikit-example" target="_blank" rel="noopener">
+            组件库地址
+            <svg fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- 卡片3 -->
+      <div class="portfolio-card">
+        <img class="portfolio-image" src="https://source.unsplash.com/featured/?dashboard" alt="作品3">
+        <div class="portfolio-content">
+          <div>
+            <h3 class="portfolio-title">数据可视化仪表盘</h3>
+            <p class="portfolio-desc">融合Echarts、D3.js实现的动态数据监控大屏，具备动画过渡效果。</p>
+          </div>
+          <a class="portfolio-link" href="https://github.com/heye256/datav-demo" target="_blank" rel="noopener">
+            查看代码
+            <svg fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- 更多卡片可按需添加 -->
+    </div>
+  </section>
+  <section id="about" style="margin-top: 90px;">
+    <h2 class="section-title">关于我</h2>
+    <p style="max-width:600px;margin:0 auto;font-size:1.12rem;text-align:center;line-height:1.8;">
+      我来自中国，专注前端开发与用户体验设计。熟悉React、Vue、TypeScript、CSS高级布局与动效。<br>
+      追求极致的细节，喜欢创造美观且高性能的Web应用，乐于学习新技术与分享前沿知识。
+    </p>
+  </section>
+  <section id="contact" style="margin-top:70px;">
+    <h2 class="section-title">联系方式</h2>
+    <p style="text-align:center;font-size:1.08rem;line-height:1.7;">
+      邮箱: <a href="mailto:heye256@gmail.com" style="color:var(--accent);text-decoration:none;">heye256@gmail.com</a><br>
+      GitHub: <a href="https://github.com/heye256" target="_blank" style="color:var(--accent);text-decoration:none;">@heye256</a>
+    </p>
+  </section>
+</main>
 <footer>
-  © 2025 何也 · 游戏策划作品集
+  2025 © HeyE256 · Design & Code
 </footer>
-
+<script>
+  // 导航栏平滑滚动（可选，现代浏览器已经支持css的 scroll-behavior）
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href.startsWith('#')){
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target){
+          target.scrollIntoView({behavior:'smooth'});
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
