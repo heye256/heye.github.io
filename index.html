@@ -142,35 +142,55 @@
 </body>
 </html>
 
-<!-- ======================== 二级页通用模板 ======================== -->
-<!-- 复制下面结构，分别保存为 ui.html / painting.html / 3d.html / graphic.html -->
-
+<!-- ======================== 二级页：游戏 UI 设计（ui.html） ======================== -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>作品详情</title>
+  <title>游戏 UI 设计｜何亚鹏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { margin:0; background:#05060a; color:#fff; font-family:PingFang SC; }
-    header { padding:120px 80px 60px; }
-    header h1 { font-size:64px; margin-bottom:16px; }
-    header p { max-width:800px; opacity:0.85; }
+    body { margin:0; background:#05060a; color:#fff; font-family:PingFang SC,Microsoft YaHei; }
+    a { color:#fff; text-decoration:none; }
+
+    .top {
+      padding:120px 80px 80px;
+      max-width:1200px;
+      margin:auto;
+    }
+    .top h1 { font-size:64px; margin-bottom:16px; }
+    .top p { max-width:820px; opacity:0.85; line-height:1.9; }
+
+    .meta {
+      display:flex; gap:32px; margin-top:32px; font-size:14px; opacity:0.8;
+    }
+
+    .section {
+      padding:80px;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    .project {
+      margin-bottom:120px;
+    }
+
+    .project h2 { font-size:36px; margin-bottom:16px; }
+    .project p { max-width:800px; opacity:0.85; margin-bottom:32px; }
 
     .gallery {
-      padding: 80px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+      gap:32px;
     }
     .gallery img {
-      width: 100%; border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      width:100%; border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
     }
 
     .back {
-      position: fixed; top: 32px; left: 32px;
-      text-decoration: none; color: #fff; opacity: 0.8;
+      position:fixed; top:32px; left:32px;
+      opacity:0.8;
     }
   </style>
 </head>
@@ -178,15 +198,126 @@
 
 <a class="back" href="index.html">← 返回首页</a>
 
-<header>
-  <h1>板块标题</h1>
-  <p>这里写该方向的设计说明、项目背景、你的职责与亮点。</p>
-</header>
+<div class="top">
+  <h1>游戏 UI 设计</h1>
+  <p>
+    主要负责游戏界面视觉设计与 UI 规范制定，涵盖主界面、功能界面、弹窗与 HUD，
+    注重视觉层级、操作逻辑与风格统一。
+  </p>
+  <div class="meta">
+    <div>角色：UI 设计</div>
+    <div>工具：PS / AI</div>
+    <div>方向：手游 / 端游</div>
+  </div>
+</div>
 
-<div class="gallery">
-  <img src="demo1.jpg" />
-  <img src="demo2.jpg" />
-  <img src="demo3.jpg" />
+<div class="section">
+  <div class="project">
+    <h2>项目一｜游戏主界面 UI</h2>
+    <p>负责整体界面布局、按钮样式与视觉规范设计。</p>
+    <div class="gallery">
+      <img src="ui_1.jpg" />
+      <img src="ui_2.jpg" />
+      <img src="ui_3.jpg" />
+    </div>
+  </div>
+
+  <div class="project">
+    <h2>项目二｜系统与弹窗 UI</h2>
+    <p>强调信息层级与交互引导，确保操作清晰直观。</p>
+    <div class="gallery">
+      <img src="ui_4.jpg" />
+      <img src="ui_5.jpg" />
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- ======================== 二级页：3D 设计（3d.html） ======================== -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D 设计｜何亚鹏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { margin:0; background:#05060a; color:#fff; font-family:PingFang SC,Microsoft YaHei; }
+    a { color:#fff; text-decoration:none; }
+
+    .top { padding:120px 80px 80px; max-width:1200px; margin:auto; }
+    .top h1 { font-size:64px; margin-bottom:16px; }
+    .top p { max-width:820px; opacity:0.85; line-height:1.9; }
+
+    .flow {
+      display:flex; gap:24px; margin-top:32px; font-size:14px; opacity:0.8;
+    }
+
+    .section { padding:80px; max-width:1400px; margin:auto; }
+
+    .stage { margin-bottom:120px; }
+    .stage h2 { font-size:36px; margin-bottom:16px; }
+    .stage p { max-width:800px; opacity:0.85; margin-bottom:32px; }
+
+    .gallery {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+      gap:32px;
+    }
+    .gallery img {
+      width:100%; border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .back { position:fixed; top:32px; left:32px; opacity:0.8; }
+  </style>
+</head>
+<body>
+
+<a class="back" href="index.html">← 返回首页</a>
+
+<div class="top">
+  <h1>3D 设计</h1>
+  <p>
+    完整参与 3D 资产制作流程，涵盖建模、UV、材质贴图、灯光渲染与简单动画，
+    熟悉 PBR 工作流与实时引擎需求。
+  </p>
+  <div class="flow">
+    <div>建模</div>
+    <div>材质贴图</div>
+    <div>渲染</div>
+    <div>三维动画</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="stage">
+    <h2>建模</h2>
+    <p>ZBrush / Maya 建模，注重结构与比例。</p>
+    <div class="gallery">
+      <img src="3d_model_1.jpg" />
+      <img src="3d_model_2.jpg" />
+    </div>
+  </div>
+
+  <div class="stage">
+    <h2>材质贴图</h2>
+    <p>Substance Painter 制作 PBR 材质。</p>
+    <div class="gallery">
+      <img src="3d_tex_1.jpg" />
+      <img src="3d_tex_2.jpg" />
+    </div>
+  </div>
+
+  <div class="stage">
+    <h2>渲染 / 动画</h2>
+    <p>灯光渲染与简单动画展示。</p>
+    <div class="gallery">
+      <img src="3d_render_1.jpg" />
+      <img src="3d_render_2.jpg" />
+    </div>
+  </div>
 </div>
 
 </body>
