@@ -36,66 +36,11 @@
     .hero-btn:hover{transform:translateY(-2px) scale(1.04);}
     /* 板块 */
     .main-content{padding:98px 0 50px 0;display:flex;flex-direction:column;align-items:center;background:linear-gradient(170deg,#232746 60%,#29356b 100%);}
-  .sections {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 38px;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-}
-
-.section-card {
-  width: 1920px;
-  max-width: 98vw;
-  height: 1080px;
-  min-height: 400px; /* 可根据屏幕适当调整最小高度 */
-  display: flex;
-  align-items: center;
-  border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-  background: var(--glass);
-  box-shadow: 0 7px 50px 0 rgba(41,216,253,.13), 0 2.5px 9px rgba(45,0,101,.08);
-  cursor: pointer;
-  transition: box-shadow .22s, transform .18s;
-  justify-content: flex-start; /* 内容靠左排列 */
-}
-
-.section-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(.68) saturate(1.17) blur(2px);
-}
-.section-content {
-  position: relative;
-  z-index: 2;
-  padding-left: 80px;
-}
-@media (max-width: 1920px) {
-  .section-card {
-    width: 100vw;
-    height: calc(100vw * 0.5625); /* 高宽比 16:9 */
-    max-width: 1920px;
-    max-height: 1080px;
-  }
-}
-/* 小屏适配（可根据实际再细调） */
-@media (max-width: 900px) {
-  .section-card {
-    padding-left: 0;
-    height: 220px;
-  }
-  .section-content {
-    padding-left: 18px;
-  }
-}
+    .sections{display:flex;flex-direction:column;gap:38px;margin-top:26px;width:100%;align-items:center;max-width:1100px;}
+    .section-card{width:700px;max-width:90vw;min-height:198px;display:flex;align-items:center;border-radius:var(--radius);position:relative;overflow:hidden;margin:0 auto;background:var(--glass);box-shadow:0 7px 50px 0 rgba(41,216,253,.13),0 2.5px 9px rgba(45,0,101,.08);cursor:pointer;transition:box-shadow .22s,transform .18s;}
+    .section-card:hover{box-shadow:0 14px 60px 0 rgba(123,92,255,.18); transform:translateY(-8px) scale(1.03);}
+    .section-bg{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;filter:brightness(.68) saturate(1.17) blur(2px);}
+    .section-content{position:relative;z-index:2;padding-left:42px;}
     .section-title{font-family:'ZCOOL KuaiLe',sans-serif;font-size:2.1em;letter-spacing:.03em;color:#fff;}
     .section-desc{font-size:1.16em;color:#eaf2ff;margin-top:8px;font-weight:400;}
     /* 3d子项 */
@@ -160,16 +105,14 @@
 
   <!-- 四大板块 -->
   <main class="main-content" id="main-content">
-   <div class="sections">
-  <div class="section-card" data-index="0" onclick="openDetail(0)">
-    <img class="section-bg" src="..." alt="">
-    <div class="section-content">
-      <div class="section-title">游戏UI设计</div>
-      <div class="section-desc">高品质游戏界面、交互与视觉动效专属设计。</div>
-    </div>
-  </div>
-  <!-- 其余三个板块同理，每个都是1920x1080且居中 -->
-</div>
+    <div class="sections">
+      <div class="section-card" data-index="0" onclick="openDetail(0)">
+        <img class="section-bg" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1100&q=80" alt="">
+        <div class="section-content">
+          <div class="section-title">游戏UI设计</div>
+          <div class="section-desc">高品质游戏界面、交互与视觉动效专属设计。</div>
+        </div>
+      </div>
       <div class="section-card" data-index="1" onclick="openDetail(1)">
   <img class="section-bg" src="assets/image/huihua/houtu.png" alt="">
   <div class="section-content">
