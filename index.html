@@ -2,276 +2,284 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>何亚鹏｜作品集</title>
+  <title>何亚鹏｜设计作品集</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 字体（站酷快乐体需自行本地引入，这里给结构示例） -->
   <style>
-    @font-face {
-      font-family: 'ZCOOLHappy';
-      src: local('ZCOOL Happy');
-    }
-
+    /* ================= 基础设置 ================= */
     * { box-sizing: border-box; }
-
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
+      background: #05060a;
+      color: #ffffff;
+      scroll-behavior: smooth;
     }
 
-    /* ===== 导航栏 ===== */
+    :root {
+      --glass-bg: rgba(10,12,20,0.55);
+      --blur: blur(14px);
+      --radius: 28px;
+      --accent: #ffffff;
+    }
+
+    /* ================= 导航 ================= */
     nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 64px;
+      height: 72px;
+      padding: 0 64px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 48px;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(6px);
+      align-items: center;
+      background: rgba(5,6,10,0.6);
+      backdrop-filter: var(--blur);
       z-index: 1000;
     }
 
-    nav a {
+    .nav-left { font-size: 20px; letter-spacing: 2px; }
+
+    .nav-right a {
+      margin-left: 36px;
       color: #fff;
       text-decoration: none;
-      margin-left: 32px;
       font-size: 16px;
+      opacity: 0.8;
+      transition: 0.3s;
     }
+    .nav-right a:hover { opacity: 1; }
 
-    nav a:hover { opacity: 0.8; }
-
-    /* ===== 首页视频背景 ===== */
+    /* ================= 首页 ================= */
     header {
       position: relative;
       width: 100vw;
       height: 100vh;
       overflow: hidden;
     }
-
     header video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(10,10,30,0.55));
     }
 
-    /* ===== 首页文字 ===== */
-    .hero-text {
+    .hero {
       position: relative;
       z-index: 1;
-      max-width: 900px;
-      padding-left: 80px;
       top: 50%;
       transform: translateY(-50%);
+      padding-left: 100px;
+      max-width: 1000px;
+    }
+    .hero h1 { font-size: 80px; margin-bottom: 24px; }
+    .hero h2 { font-size: 30px; margin-bottom: 20px; opacity: 0.9; }
+    .hero p { font-size: 18px; line-height: 1.9; color: #d6d9e0; }
+
+    /* ================= 板块 ================= */
+    section { padding: 140px 80px; }
+
+    .works-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
     }
 
-    .hero-text h1 {
-      font-family: 'ZCOOLHappy', cursive;
-      font-size: 96px;
-      margin: 0 0 24px;
+    .work-block {
+      height: 420px;
+      border-radius: var(--radius);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: 0.6s ease;
     }
 
-    .hero-text h2 {
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 24px;
+    .work-block.show { transform: translateY(0); opacity: 1; }
+
+    .work-block::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(5,6,15,0.55);
+      transition: 0.4s;
+    }
+    .work-block:hover::after { background: rgba(5,6,15,0.35); }
+
+    .work-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #e5e5e5;
-      max-width: 800px;
+    .work-content h3 { font-size: 48px; letter-spacing: 4px; }
+    .work-content p { margin-top: 12px; opacity: 0.85; }
+
+    /* ================= 弹窗 ================= */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
     }
 
-    /* ===== 公共区块 ===== */
-    section {
-      padding: 120px 80px;
-      background: #0a0a0a;
+    .modal.active { display: flex; }
+
+    .modal-content {
+      width: 80%;
+      max-width: 1000px;
+      background: #0b0d18;
+      border-radius: 24px;
+      padding: 40px;
     }
 
-    section:nth-of-type(even) {
-      background: #111;
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+    }
+    .carousel img {
+      height: 420px;
+      border-radius: 18px;
     }
 
-    section h3 {
-      font-size: 40px;
-      margin-bottom: 48px;
-      border-left: 6px solid #fff;
-      padding-left: 16px;
-    }
-
-    /* ===== 四大板块 ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-    }
-
-    .card {
-      background: #1a1a1a;
-      padding: 32px;
-      border-radius: 16px;
-    }
-
-    .card h4 {
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .card p {
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    .sublist {
-      margin-top: 12px;
-      color: #aaa;
-      font-size: 15px;
-    }
-
-    /* ===== 简历按钮 ===== */
-    .resume-actions {
-      margin-top: 40px;
-    }
+    /* ================= 简历 ================= */
+    .resume { text-align: center; }
+    .resume h3 { font-size: 42px; margin-bottom: 32px; }
 
     .btn {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 16px 44px;
       border-radius: 999px;
-      background: #fff;
-      color: #000;
+      margin: 0 16px;
       text-decoration: none;
-      margin-right: 20px;
-      font-size: 16px;
       transition: 0.3s;
     }
+    .primary { background: #fff; color: #000; }
+    .ghost { border: 2px solid #fff; color: #fff; }
 
-    .btn.outline {
-      background: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-    }
+    /* ================= 联系方式 ================= */
+    .contact { text-align: center; }
+    .contact h3 { font-size: 40px; margin-bottom: 24px; }
+    .contact p { margin: 10px 0; opacity: 0.85; }
 
-    .btn:hover { opacity: 0.8; }
+    footer { padding: 48px; text-align: center; color: #777; }
 
-    /* ===== 联系方式 ===== */
-    .contact p {
-      font-size: 18px;
-      margin: 12px 0;
-    }
-
-    footer {
-      padding: 40px;
-      text-align: center;
-      background: #000;
-      color: #777;
-    }
-
-    @media (max-width: 768px) {
-      .hero-text {
-        padding-left: 32px;
-      }
-
-      .hero-text h1 {
-        font-size: 56px;
-      }
+    /* ================= 鼠标跟随 ================= */
+    .cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      z-index: 3000;
+      transform: translate(-50%, -50%);
     }
   </style>
 </head>
 <body>
 
-<!-- 导航栏 -->
+<div class="cursor"></div>
+
 <nav>
-  <div>
-    <a href="#works">作品集</a>
-  </div>
-  <div>
+  <div class="nav-left">作品集</div>
+  <div class="nav-right">
     <a href="#works">作品展示</a>
     <a href="#resume">查看简历</a>
     <a href="#contact">联系方式</a>
   </div>
 </nav>
 
-<!-- 首页 -->
-<header id="home">
+<header>
   <video src="video.mp4" autoplay muted loop></video>
-  <div class="hero-text">
+  <div class="hero">
     <h1>你好，我是何亚鹏</h1>
     <h2>专注平面设计与 3D 美术</h2>
-    <p>
-      熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等
-      平面设计软件和三维动画制作软件。
-    </p>
+    <p>熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维软件。</p>
   </div>
 </header>
 
-<!-- 作品内容 -->
 <section id="works">
-  <h3>作品方向</h3>
-  <div class="grid">
-    <div class="card">
-      <h4>游戏 UI 设计</h4>
-      <p>界面风格设定、交互逻辑、UI 规范与落地。</p>
-    </div>
-
-    <div class="card">
-      <h4>绘画</h4>
-      <p>概念设定、气氛图、角色与场景绘制。</p>
-    </div>
-
-    <div class="card">
-      <h4>3D 设计</h4>
-      <p>完整三维资产制作流程。</p>
-      <div class="sublist">建模 / 材质贴图 / 渲染 / 三维动画</div>
-    </div>
-
-    <div class="card">
-      <h4>平面设计</h4>
-      <p>品牌视觉、海报设计、商业视觉输出。</p>
-    </div>
+  <div class="works-wrapper">
+    <div class="work-block" data-modal="ui" style="background-image:url('bg-ui.jpg')"><div class="work-content"><h3>游戏 UI</h3></div></div>
+    <div class="work-block" data-modal="paint" style="background-image:url('bg-paint.jpg')"><div class="work-content"><h3>绘画</h3></div></div>
+    <div class="work-block" data-modal="3d" style="background-image:url('bg-3d.jpg')"><div class="work-content"><h3>3D 设计</h3></div></div>
+    <div class="work-block" data-modal="graphic" style="background-image:url('bg-graphic.jpg')"><div class="work-content"><h3>平面设计</h3></div></div>
   </div>
 </section>
 
-<!-- 简历 -->
-<section id="resume">
-  <h3>简历</h3>
-  <p>可在线预览或下载我的简历图片。</p>
-  <div class="resume-actions">
-    <a class="btn" href="resume.jpg" target="_blank">预览简历</a>
-    <a class="btn outline" href="resume.jpg" download>下载简历</a>
-  </div>
+<section id="resume" class="resume">
+  <h3>查看简历</h3>
+  <a class="btn primary" href="resume.jpg" target="_blank">预览简历</a>
+  <a class="btn ghost" href="resume.jpg" download>下载简历</a>
 </section>
 
-<!-- 联系方式 -->
 <section id="contact" class="contact">
   <h3>联系方式</h3>
-  <p>📧 邮箱：2855785353@qq.com</p>
-  <p>💬 微信：HEYAPENG-H</p>
-  <p>📞 电话：15184430418</p>
+  <p>邮箱：2855785353@qq.com</p>
+  <p>微信：HEYAPENG-H</p>
+  <p>电话：15184430418</p>
 </section>
 
-<footer>
-  © 2025 何亚鹏 · 作品集
-</footer>
+<footer>© 2025 何亚鹏 · 设计作品集</footer>
+
+<!-- 弹窗 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="carousel">
+      <img src="demo1.jpg" />
+      <img src="demo2.jpg" />
+      <img src="demo3.jpg" />
+    </div>
+  </div>
+</div>
+
+<script>
+  /* 滚动动画 */
+  const blocks = document.querySelectorAll('.work-block');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  });
+  blocks.forEach(b => observer.observe(b));
+
+  /* 弹窗 */
+  const modal = document.getElementById('modal');
+  blocks.forEach(b => b.onclick = () => modal.classList.add('active'));
+  modal.onclick = () => modal.classList.remove('active');
+
+  /* 鼠标跟随 */
+  const cursor = document.querySelector('.cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+</script>
 
 </body>
 </html>
-
