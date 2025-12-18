@@ -64,7 +64,11 @@
     .contact-info a{color:#a2deff;text-decoration:none;}
     @media (max-width:900px){
       .hero-title{font-size:45px;}
-      .main-content{padding-top:52px;}
+   .main-content {
+  background: url('assets/bg2.jpg') no-repeat center top;
+  background-size: cover;
+  /* 其他原有属性不变 */
+}
       .section-card{width:97vw;}
       .navbar{padding:0 15px;}
       .section-content{padding-left:18px;}
@@ -101,11 +105,7 @@
       <button class="hero-btn" onclick="scrollToPart('main-content')">浏览作品</button>
     </div>
   </div>
-</section>
-<!-- 首页下方背景图 -->
-<div class="custom-bgimg-wrap">
-  <img src="assest/image/beijijn/背景.png" alt="页面背景图" class="custom-bgimg">
-</div>
+
   <!-- 四大板块 -->
   <main class="main-content" id="main-content">
     <div class="sections">
