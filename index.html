@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>何亚鹏 · 作品集</title>
+<title>何亚鹏｜综合设计作品集</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 /* ===== 全局 ===== */
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html,body{
   font-family:"PingFang SC","Microsoft YaHei",sans-serif;
   background:#05060a;
@@ -25,16 +25,19 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(5,6,10,.6);
+  background:rgba(5,6,10,.65);
   backdrop-filter:blur(12px);
   z-index:1000;
 }
-.nav-left{letter-spacing:4px;font-weight:600}
+.nav-left{
+  letter-spacing:4px;
+  font-weight:600;
+}
 .nav-right a{
-  color:#fff;
   margin-left:40px;
+  color:#fff;
   text-decoration:none;
-  opacity:.8;
+  opacity:.85;
 }
 .nav-right a:hover{opacity:1}
 
@@ -55,7 +58,7 @@ header::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(120deg,rgba(0,0,0,.75),rgba(20,20,40,.5));
+  background:linear-gradient(120deg,rgba(0,0,0,.75),rgba(15,20,40,.5));
 }
 .hero{
   position:relative;
@@ -63,24 +66,24 @@ header::after{
   top:50%;
   transform:translateY(-50%);
   padding-left:100px;
-  max-width:900px;
+  max-width:920px;
 }
 .hero h1{
   font-size:80px;
   margin-bottom:24px;
 }
 .hero h2{
-  font-size:30px;
+  font-size:32px;
   margin-bottom:24px;
 }
 .hero p{
   line-height:1.9;
   color:#d0d3da;
 }
-.hero .btn{
-  margin-top:36px;
+.hero a{
   display:inline-block;
-  padding:14px 44px;
+  margin-top:40px;
+  padding:14px 48px;
   border-radius:999px;
   border:2px solid #fff;
   color:#fff;
@@ -88,7 +91,7 @@ header::after{
 }
 
 /* ===== 正文背景 ===== */
-.main-bg{
+.main{
   background:url("assets/images/bg-main.jpg") center/cover fixed;
 }
 
@@ -100,11 +103,11 @@ section{
   width:1400px;
   height:800px;
   margin:0 auto 140px;
-  border-radius:28px;
-  overflow:hidden;
   position:relative;
-  cursor:pointer;
+  overflow:hidden;
+  border-radius:28px;
   box-shadow:0 40px 100px rgba(0,0,0,.6);
+  cursor:pointer;
 }
 .block img{
   width:100%;
@@ -135,7 +138,13 @@ section{
 }
 .detail h3{
   font-size:42px;
-  margin-bottom:32px;
+  margin-bottom:20px;
+}
+.detail p{
+  max-width:800px;
+  line-height:1.8;
+  color:#d6d9e0;
+  margin-bottom:40px;
 }
 .gallery{
   display:grid;
@@ -148,7 +157,7 @@ section{
   cursor:pointer;
   transition:.3s;
 }
-.gallery img:hover{transform:scale(1.03)}
+.gallery img:hover{transform:scale(1.04)}
 
 /* ===== 简历 ===== */
 .resume{
@@ -156,7 +165,7 @@ section{
   padding:120px 0;
 }
 .resume img{
-  width:800px;
+  width:820px;
   max-width:90%;
   border-radius:20px;
   box-shadow:0 30px 80px rgba(0,0,0,.6);
@@ -175,8 +184,8 @@ section{
 .contact{
   text-align:center;
   padding:100px 0;
-  line-height:2.2;
   font-size:18px;
+  line-height:2.2;
 }
 </style>
 </head>
@@ -197,16 +206,15 @@ section{
   <video src="assets/videos/hero.mp4" autoplay muted loop playsinline></video>
   <div class="hero">
     <h1>你好，我是何亚鹏</h1>
-    <h2>专注平面设计与 3D 美术</h2>
-    <p>熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维软件。</p>
-    <a class="btn" href="#works">浏览作品</a>
+    <h2>专注游戏 UI 设计与 3D 美术创作</h2>
+    <p>熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维软件，具备完整视觉与三维资产制作能力。</p>
+    <a href="#works">浏览作品</a>
   </div>
 </header>
 
-<!-- 正文 -->
-<div class="main-bg" id="works">
+<div class="main" id="works">
 
-<!-- 游戏UI -->
+<!-- 游戏 UI -->
 <section id="ui">
   <div class="block">
     <img src="assets/images/ui-cover.jpg">
@@ -214,7 +222,8 @@ section{
   </div>
 
   <div class="detail">
-    <h3>界面设计 / 交互</h3>
+    <h3>界面设计 / 视觉规范</h3>
+    <p>负责游戏整体 UI 风格制定、界面布局与交互层级设计，注重信息清晰度与视觉表现。</p>
     <div class="gallery">
       <img src="assets/images/ui-1.jpg">
       <img src="assets/images/ui-2.jpg">
@@ -236,6 +245,16 @@ section{
   <div class="block">
     <img src="assets/images/d3-cover.jpg">
     <div class="block-title">3D 设计</div>
+  </div>
+
+  <div class="detail">
+    <h3>建模 / 材质 / 渲染 / 动画</h3>
+    <p>熟悉完整 3D 制作流程，基于 PBR 工作流完成模型、贴图、渲染及基础动画制作。</p>
+    <div class="gallery">
+      <img src="assets/images/d3-1.jpg">
+      <img src="assets/images/d3-2.jpg">
+      <img src="assets/images/d3-3.jpg">
+    </div>
   </div>
 </section>
 
