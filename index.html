@@ -69,13 +69,7 @@ html,body{margin:0;padding:0;font-family:Montserrat,'PingFang SC',sans-serif;col
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    120deg,
-    rgba(15,18,34,0.55) 35%,
-    rgba(15,18,34,0.15) 65%,
-    transparent
-  );
-}
+  background:linear-gradient(120deg,rgba(15,18,34,.85) 35%,transparent);
 .hero-content{
   position:relative;
   z-index:2;
@@ -110,6 +104,10 @@ html,body{margin:0;padding:0;font-family:Montserrat,'PingFang SC',sans-serif;col
   border:0;
   cursor:pointer;
   align-self:flex-start;      /* 关键：靠左 */
+}
+  .hero-btn:hover{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#101226;
 }
 
 /* ================= PAGE BG ================= */
