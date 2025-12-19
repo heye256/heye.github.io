@@ -1,9 +1,269 @@
-@@ -1,24 +1,24 @@<!doctype html><html lang="en"><!DOCTYPE html><html lang="zh-CN">  <head>    <meta charset="UTF-8" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <!-- TODO: Set the document title to the name of your application -->    <title>Lovable App</title>    <meta name="description" content="Lovable Generated Project" />    <meta name="author" content="Lovable" />    <!-- TODO: Update og:title to match your application name -->    <meta property="og:title" content="Lovable App" />    <meta property="og:description" content="Lovable Generated Project" />    <title>何亚鹏 | 平面设计与3D美术作品集</title>    <meta name="description" content="何亚鹏的个人作品集 - 专注平面设计与3D美术，熟悉PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke等专业软件。" />    <meta name="keywords" content="何亚鹏, 平面设计, 3D美术, 游戏UI设计, 绘画, 建模, 渲染, 作品集" />    <meta name="author" content="何亚鹏" />        <meta property="og:title" content="何亚鹏 | 平面设计与3D美术作品集" />    <meta property="og:description" content="专注平面设计与3D美术的设计师作品集" />    <meta property="og:type" content="website" />    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />    <meta name="twitter:card" content="summary_large_image" />    <meta name="twitter:site" content="@Lovable" />    <meta name="twitter:site" content="@heyapeng" />    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />  </head>    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />  </head>  <body>    <div id="root"></div>    <script type="module" src="/src/main.tsx"></script>
-折叠文件‎src/components/ContactSection.tsx‎将文件名复制到剪贴板+94​更改行数：新增 94 行，删除 0 行原始文件行号差分行号差速器线路变化@@ -0,0 +1,94 @@import { Mail, MessageCircle, Phone } from 'lucide-react';interface ContactSectionProps {  sectionRef: React.RefObject<HTMLElement>;}const ContactSection = ({ sectionRef }: ContactSectionProps) => {  const contactInfo = [    {      icon: <Mail className="w-8 h-8" />,      label: '邮箱',      value: '2855785353@qq.com',      href: 'mailto:2855785353@qq.com',    },    {      icon: <MessageCircle className="w-8 h-8" />,      label: '微信',      value: 'HEYAPENG-H',      href: null,    },    {      icon: <Phone className="w-8 h-8" />,      label: '电话',      value: '15184430418',      href: 'tel:15184430418',    },  ];  return (    <section ref={sectionRef} className="relative py-24 min-h-[60vh] flex items-center">      {/* Background */}      <div className="absolute inset-0 bg-gradient-to-t from-background via-card to-background" />            {/* Decorative Elements */}      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />      <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-primary/10 rounded-full blur-2xl" />            <div className="container mx-auto px-6 relative z-10">        <div className="max-w-4xl mx-auto text-center">          {/* Header */}          <div className="mb-16">            <h2 className="text-4xl md:text-5xl font-bold mb-4">              <span className="text-gradient-gold">联系方式</span>            </h2>            <p className="text-muted-foreground text-lg">              期待与您的合作            </p>          </div>          {/* Contact Cards */}          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">            {contactInfo.map((contact, index) => (              <div                key={contact.label}                className="group p-8 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-gold"                style={{ animationDelay: `${index * 0.1}s` }}              >                <div className="inline-flex p-4 rounded-xl bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">                  {contact.icon}                </div>                                <h3 className="text-muted-foreground text-sm uppercase tracking-wider mb-2">                  {contact.label}                </h3>                                {contact.href ? (                  <a                    href={contact.href}                    className="text-xl font-semibold text-foreground hover:text-primary transition-colors break-all"                  >                    {contact.value}                  </a>                ) : (                  <p className="text-xl font-semibold text-foreground break-all">                    {contact.value}                  </p>                )}              </div>            ))}          </div>          {/* Footer */}          <div className="mt-16 pt-8 border-t border-border">            <p className="text-muted-foreground">              © 2024 何亚鹏 · 作品集            </p>          </div>        </div>      </div>    </section>  );};export default ContactSection;
-折叠文件‎src/components/HeroSection.tsx‎将文件名复制到剪贴板+77​更改行数：新增 77 行，删除 0 行原始文件行号差分行号差速器线路变化@@ -0,0 +1,77 @@import { ChevronDown } from 'lucide-react';interface HeroSectionProps {  onBrowseWorks: () => void;}const HeroSection = ({ onBrowseWorks }: HeroSectionProps) => {  return (    <section className="relative min-h-screen flex items-center overflow-hidden">      {/* Video Background */}      <div className="absolute inset-0 z-0">        <video          autoPlay          muted          loop          playsInline          className="w-full h-full object-cover"        >          <source            src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-futuristic-devices-99786-large.mp4"            type="video/mp4"          />        </video>        <div className="absolute inset-0 bg-gradient-hero opacity-90" />        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />      </div>      {/* Decorative Elements */}      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />      <div className="absolute bottom-1/4 right-1/3 w-64 h-64 bg-primary/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }} />      {/* Content */}      <div className="container mx-auto px-6 relative z-10">        <div className="max-w-3xl">          <h1             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-up"            style={{ fontFamily: 'var(--font-display)' }}          >            <span className="text-foreground">你好，我是</span>            <br />            <span className="text-gradient-gold">何亚鹏</span>          </h1>                    <p             className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-slide-up max-w-2xl"            style={{ animationDelay: '0.2s' }}          >            专注<span className="text-primary font-medium">平面设计</span>与<span className="text-primary font-medium">3D美术</span>。            熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等平面设计软件和三维动画制作软件。          </p>          <div             className="animate-slide-up"            style={{ animationDelay: '0.4s' }}          >            <button               onClick={onBrowseWorks}              className="hero-button group"            >              <span className="flex items-center gap-2">                浏览作品                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />              </span>            </button>          </div>        </div>      </div>      {/* Scroll Indicator */}      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">        <ChevronDown className="w-8 h-8 text-primary/60" />      </div>    </section>  );};export default HeroSection;
-折叠文件‎src/components/Navigation.tsx‎将文件名复制到剪贴板+54​更改行数：新增 54 行，删除 0 行原始文件行号差分行号差速器线路变化@@ -0,0 +1,54 @@import { useState, useEffect } from 'react';interface NavigationProps {  onNavigate: (section: string) => void;}const Navigation = ({ onNavigate }: NavigationProps) => {  const [isScrolled, setIsScrolled] = useState(false);  useEffect(() => {    const handleScroll = () => {      setIsScrolled(window.scrollY > 50);    };    window.addEventListener('scroll', handleScroll);    return () => window.removeEventListener('scroll', handleScroll);  }, []);  return (    <nav      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${        isScrolled ? 'glass-effect py-4' : 'py-6'      }`}    >      <div className="container mx-auto px-6 flex items-center justify-between">        <div className="text-xl font-bold text-gradient-gold tracking-wider">          作品集        </div>                <div className="flex items-center gap-2">          <button            onClick={() => onNavigate('works')}            className="nav-link"          >            作品展示          </button>          <button            onClick={() => onNavigate('resume')}            className="nav-link"          >            查看简历          </button>          <button            onClick={() => onNavigate('contact')}            className="nav-link"          >            联系方式          </button>        </div>      </div>    </nav>  );};export default Navigation;
-折叠文件‎src/components/ResumeSection.tsx‎将文件名复制到剪贴板+116​更改行数：新增 116 行，删除 0 行原始文件行号差分行号差速器线路变化@@ -0,0 +1,116 @@import { Download, Eye, FileText } from 'lucide-react';import { useState } from 'react';interface ResumeSectionProps {  sectionRef: React.RefObject<HTMLElement>;}const ResumeSection = ({ sectionRef }: ResumeSectionProps) => {  const [isPreviewOpen, setIsPreviewOpen] = useState(false);  // Sample resume image (you can replace with actual resume)  const resumeImage = 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80';  const handleDownload = () => {    // Create a link to download the resume    const link = document.createElement('a');    link.href = resumeImage;    link.download = '何亚鹏_简历.png';    document.body.appendChild(link);    link.click();    document.body.removeChild(link);  };  return (    <section ref={sectionRef} className="relative py-24 min-h-screen flex items-center">      {/* Background */}      <div className="absolute inset-0 bg-gradient-to-b from-card via-background to-card" />            <div className="container mx-auto px-6 relative z-10">        <div className="max-w-4xl mx-auto text-center">          {/* Header */}          <div className="mb-12">            <div className="inline-flex p-4 rounded-2xl bg-gradient-gold mb-6">              <FileText className="w-12 h-12 text-primary-foreground" />            </div>            <h2 className="text-4xl md:text-5xl font-bold mb-4">              <span className="text-gradient-gold">个人简历</span>            </h2>            <p className="text-muted-foreground text-lg">              了解更多关于我的专业背景与工作经历            </p>          </div>          {/* Resume Preview Card */}          <div className="bg-gradient-card rounded-2xl p-8 shadow-card mb-12">            <div className="aspect-[3/4] max-h-[500px] rounded-xl overflow-hidden mb-8 mx-auto max-w-md">              <img                src={resumeImage}                alt="简历预览"                className="w-full h-full object-cover"              />            </div>            {/* Action Buttons */}            <div className="flex flex-col sm:flex-row gap-4 justify-center">              <button                onClick={() => setIsPreviewOpen(true)}                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-secondary hover:bg-secondary/80 text-secondary-foreground font-semibold transition-all duration-300 hover:shadow-elevated"              >                <Eye className="w-5 h-5" />                预览简历              </button>                            <button                onClick={handleDownload}                className="hero-button"              >                <span className="flex items-center gap-3">                  <Download className="w-5 h-5" />                  下载简历                </span>              </button>            </div>          </div>          {/* Skills Summary */}          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">            {['PS', 'AI', 'ZBrush', 'Nuke'].map((skill) => (              <div                key={skill}                className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"              >                <span className="text-primary font-semibold">{skill}</span>              </div>            ))}          </div>        </div>      </div>      {/* Preview Modal */}      {isPreviewOpen && (        <div           className="fixed inset-0 z-50 bg-background/98 flex items-center justify-center p-6"          onClick={() => setIsPreviewOpen(false)}        >          <div className="relative max-w-4xl max-h-[90vh] overflow-auto">            <img              src={resumeImage}              alt="简历"              className="w-full h-auto rounded-xl shadow-card"              onClick={(e) => e.stopPropagation()}            />          </div>          <button            onClick={() => setIsPreviewOpen(false)}            className="absolute top-6 right-6 p-3 rounded-full bg-card hover:bg-destructive/20 text-foreground hover:text-destructive transition-all"          >            ✕          </button>        </div>      )}    </section>  );};export default ResumeSection;
-折叠文件‎src/components/WorksSection.tsx‎将文件名复制到剪贴板+294​更改行数：新增 294 行，删除 0 行原始文件行号差分行号差速器线路变化@@ -0,0 +1,294 @@import { useState } from 'react';import { X, ChevronLeft, ChevronRight, Layers, Palette, Box, PenTool } from 'lucide-react';interface Category {  id: string;  title: string;  subtitle?: string;  icon: React.ReactNode;  images: string[];  description: string;}const categories: Category[] = [  {    id: 'game-ui',    title: '游戏UI设计',    icon: <Layers className="w-8 h-8" />,    description: '专注于游戏界面设计，打造沉浸式用户体验',    images: [      'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80',      'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80',      'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&q=80',      'https://images.unsplash.com/photo-1552820728-8b83bb6b2b0c?w=800&q=80',    ],  },  {    id: 'painting',    title: '绘画',    icon: <PenTool className="w-8 h-8" />,    description: '数字绘画与插画创作',    images: [      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',      'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=800&q=80',      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80',      'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80',    ],  },  {    id: '3d-design',    title: '3D设计',    subtitle: '建模 · 材质贴图 · 渲染 · 三维动画',    icon: <Box className="w-8 h-8" />,    description: '三维建模、材质贴图、渲染及动画制作',    images: [      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80',      'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80',    ],  },  {    id: 'graphic-design',    title: '平面设计',    icon: <Palette className="w-8 h-8" />,    description: '品牌视觉、海报设计与排版',    images: [      'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',      'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80',      'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80',      'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80',    ],  },];interface WorksSectionProps {  sectionRef: React.RefObject<HTMLElement>;}const WorksSection = ({ sectionRef }: WorksSectionProps) => {  const [activeCategory, setActiveCategory] = useState<Category | null>(null);  const [lightboxImage, setLightboxImage] = useState<string | null>(null);  const [currentImageIndex, setCurrentImageIndex] = useState(0);  const openCategory = (category: Category) => {    setActiveCategory(category);  };  const closeCategory = () => {    setActiveCategory(null);  };  const openLightbox = (image: string, index: number) => {    setLightboxImage(image);    setCurrentImageIndex(index);  };  const closeLightbox = () => {    setLightboxImage(null);  };  const nextImage = () => {    if (activeCategory) {      const nextIndex = (currentImageIndex + 1) % activeCategory.images.length;      setCurrentImageIndex(nextIndex);      setLightboxImage(activeCategory.images[nextIndex]);    }  };  const prevImage = () => {    if (activeCategory) {      const prevIndex = (currentImageIndex - 1 + activeCategory.images.length) % activeCategory.images.length;      setCurrentImageIndex(prevIndex);      setLightboxImage(activeCategory.images[prevIndex]);    }  };  const currentCategoryIndex = activeCategory     ? categories.findIndex(c => c.id === activeCategory.id)    : -1;  const goToCategory = (direction: 'prev' | 'next') => {    if (currentCategoryIndex === -1) return;        const newIndex = direction === 'prev'      ? (currentCategoryIndex - 1 + categories.length) % categories.length      : (currentCategoryIndex + 1) % categories.length;        setActiveCategory(categories[newIndex]);  };  return (    <section ref={sectionRef} className="relative py-24 min-h-screen">      {/* Background */}      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />            <div className="container mx-auto px-6 relative z-10">        <div className="text-center mb-16">          <h2 className="text-4xl md:text-5xl font-bold mb-4">            <span className="text-gradient-gold">作品展示</span>          </h2>          <p className="text-muted-foreground text-lg">点击任意板块查看详情</p>        </div>        {/* Category Cards */}        <div className="flex flex-col gap-8 max-w-[1400px] mx-auto">          {categories.map((category, index) => (            <div              key={category.id}              onClick={() => openCategory(category)}              className="section-card cursor-pointer group h-[450px] md:h-[500px]"              style={{                 animationDelay: `${index * 0.1}s`,              }}            >              {/* Background Image */}              <div className="absolute inset-0">                <img                  src={category.images[0]}                  alt={category.title}                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"                />                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />              </div>              {/* Content */}              <div className="absolute bottom-0 left-0 right-0 p-8">                <div className="flex items-center gap-4 mb-4">                  <div className="p-3 rounded-xl bg-primary/20 text-primary backdrop-blur-sm">                    {category.icon}                  </div>                  <div>                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">                      {category.title}                    </h3>                    {category.subtitle && (                      <p className="text-primary text-sm mt-1">{category.subtitle}</p>                    )}                  </div>                </div>                <p className="text-muted-foreground">{category.description}</p>              </div>              {/* Hover Indicator */}              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">                <div className="px-4 py-2 rounded-full bg-primary/20 text-primary text-sm backdrop-blur-sm">                  点击查看详情                </div>              </div>            </div>          ))}        </div>      </div>      {/* Detail Modal */}      {activeCategory && (        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-lg overflow-y-auto">          {/* Navigation between categories */}          <div className="fixed top-1/2 left-4 -translate-y-1/2 z-50">            <button              onClick={() => goToCategory('prev')}              className="p-3 rounded-full bg-card hover:bg-primary/20 text-foreground hover:text-primary transition-all"            >              <ChevronLeft className="w-6 h-6" />            </button>          </div>          <div className="fixed top-1/2 right-4 -translate-y-1/2 z-50">            <button              onClick={() => goToCategory('next')}              className="p-3 rounded-full bg-card hover:bg-primary/20 text-foreground hover:text-primary transition-all"            >              <ChevronRight className="w-6 h-6" />            </button>          </div>          {/* Close Button */}          <button            onClick={closeCategory}            className="fixed top-6 right-6 z-50 p-3 rounded-full bg-card hover:bg-destructive/20 text-foreground hover:text-destructive transition-all"          >            <X className="w-6 h-6" />          </button>          <div className="container mx-auto px-6 py-24">            {/* Header */}            <div className="flex items-center gap-4 mb-12">              <div className="p-4 rounded-2xl bg-gradient-gold text-primary-foreground">                {activeCategory.icon}              </div>              <div>                <h2 className="text-4xl font-bold text-foreground">                  {activeCategory.title}                </h2>                {activeCategory.subtitle && (                  <p className="text-primary mt-2">{activeCategory.subtitle}</p>                )}              </div>            </div>            {/* Image Grid */}            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">              {activeCategory.images.map((image, index) => (                <div                  key={index}                  onClick={() => openLightbox(image, index)}                  className="relative aspect-video rounded-xl overflow-hidden cursor-zoom-in group"                >                  <img                    src={image}                    alt={`${activeCategory.title} ${index + 1}`}                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"                  />                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />                </div>              ))}            </div>            {/* Category Navigation Hint */}            <div className="mt-12 text-center text-muted-foreground">              <p>使用左右箭头或滚动鼠标浏览其他板块</p>            </div>          </div>        </div>      )}      {/* Lightbox */}      {lightboxImage && (        <div           className="fixed inset-0 z-[60] bg-background/98 flex items-center justify-center"          onClick={closeLightbox}        >          <button            onClick={(e) => { e.stopPropagation(); prevImage(); }}            className="absolute left-4 p-3 rounded-full bg-card hover:bg-primary/20 text-foreground hover:text-primary transition-all"          >            <ChevronLeft className="w-8 h-8" />          </button>                    <img            src={lightboxImage}            alt="Enlarged view"            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg animate-scale-in"            onClick={(e) => e.stopPropagation()}          />                    <button            onClick={(e) => { e.stopPropagation(); nextImage(); }}            className="absolute right-4 p-3 rounded-full bg-card hover:bg-primary/20 text-foreground hover:text-primary transition-all"          >            <ChevronRight className="w-8 h-8" />          </button>          <button            onClick={closeLightbox}            className="absolute top-4 right-4 p-3 rounded-full bg-card hover:bg-destructive/20 text-foreground hover:text-destructive transition-all"          >            <X className="w-6 h-6" />          </button>        </div>      )}    </section>  );};export default WorksSection;
-折叠文件‎src/index.css‎将文件名复制到剪贴板展开所有行：src/index.css+228​- 64更改行数：新增 228 行，删除 64 行原始文件行号差分行号差速器线路变化@@ -2,104 +2,268 @@@tailwind components;@tailwind utilities;/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. All colors MUST be HSL.*/@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');@layer base {  :root {    --background: 0 0% 100%;    --foreground: 222.2 84% 4.9%;    --background: 240 10% 4%;    --foreground: 0 0% 95%;    --card: 0 0% 100%;    --card-foreground: 222.2 84% 4.9%;    --card: 240 10% 8%;    --card-foreground: 0 0% 95%;    --popover: 0 0% 100%;    --popover-foreground: 222.2 84% 4.9%;    --popover: 240 10% 6%;    --popover-foreground: 0 0% 95%;    --primary: 222.2 47.4% 11.2%;    --primary-foreground: 210 40% 98%;    --primary: 38 92% 50%;    --primary-foreground: 240 10% 4%;    --secondary: 210 40% 96.1%;    --secondary-foreground: 222.2 47.4% 11.2%;    --secondary: 240 5% 16%;    --secondary-foreground: 0 0% 95%;    --muted: 210 40% 96.1%;    --muted-foreground: 215.4 16.3% 46.9%;    --muted: 240 5% 20%;    --muted-foreground: 240 5% 60%;    --accent: 210 40% 96.1%;    --accent-foreground: 222.2 47.4% 11.2%;    --accent: 38 70% 40%;    --accent-foreground: 0 0% 95%;    --destructive: 0 84.2% 60.2%;    --destructive-foreground: 210 40% 98%;    --destructive: 0 84% 60%;    --destructive-foreground: 0 0% 95%;    --border: 214.3 31.8% 91.4%;    --input: 214.3 31.8% 91.4%;    --ring: 222.2 84% 4.9%;    --border: 240 5% 18%;    --input: 240 5% 18%;    --ring: 38 92% 50%;    --radius: 0.5rem;    --radius: 0.75rem;    --sidebar-background: 0 0% 98%;    /* Custom tokens */    --gradient-gold: linear-gradient(135deg, hsl(38, 92%, 50%) 0%, hsl(28, 85%, 45%) 50%, hsl(38, 92%, 50%) 100%);    --gradient-dark: linear-gradient(180deg, hsl(240, 10%, 4%) 0%, hsl(240, 10%, 8%) 100%);    --gradient-card: linear-gradient(145deg, hsl(240, 10%, 10%) 0%, hsl(240, 10%, 6%) 100%);    --gradient-hero: linear-gradient(135deg, hsl(240, 10%, 6%) 0%, hsl(240, 15%, 8%) 50%, hsl(260, 10%, 6%) 100%);        --shadow-gold: 0 0 40px hsl(38, 92%, 50%, 0.2);    --shadow-card: 0 20px 60px hsl(0, 0%, 0%, 0.4);    --shadow-elevated: 0 8px 32px hsl(0, 0%, 0%, 0.3);    --sidebar-foreground: 240 5.3% 26.1%;    --font-display: 'Noto Sans SC', sans-serif;    --font-body: 'Noto Sans SC', sans-serif;    --sidebar-primary: 240 5.9% 10%;    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);  }    --sidebar-primary-foreground: 0 0% 98%;  .dark {    --background: 240 10% 4%;    --foreground: 0 0% 95%;  }}    --sidebar-accent: 240 4.8% 95.9%;@layer base {  * {    @apply border-border;  }    --sidebar-accent-foreground: 240 5.9% 10%;  html {    scroll-behavior: smooth;  }    --sidebar-border: 220 13% 91%;  body {    @apply bg-background text-foreground;    font-family: var(--font-body);  }}    --sidebar-ring: 217.2 91.2% 59.8%;@layer components {  .text-gradient-gold {    background: var(--gradient-gold);    -webkit-background-clip: text;    -webkit-text-fill-color: transparent;    background-clip: text;  }  .dark {    --background: 222.2 84% 4.9%;    --foreground: 210 40% 98%;  .bg-gradient-gold {    background: var(--gradient-gold);  }  .bg-gradient-card {    background: var(--gradient-card);  }  .bg-gradient-hero {    background: var(--gradient-hero);  }  .shadow-gold {    box-shadow: var(--shadow-gold);  }    --card: 222.2 84% 4.9%;    --card-foreground: 210 40% 98%;  .shadow-card {    box-shadow: var(--shadow-card);  }    --popover: 222.2 84% 4.9%;    --popover-foreground: 210 40% 98%;  .glass-effect {    background: hsl(240, 10%, 8%, 0.8);    backdrop-filter: blur(20px);    -webkit-backdrop-filter: blur(20px);  }    --primary: 210 40% 98%;    --primary-foreground: 222.2 47.4% 11.2%;  .section-card {    @apply relative overflow-hidden rounded-2xl;    background: var(--gradient-card);    box-shadow: var(--shadow-card);    transition: var(--transition-smooth);  }    --secondary: 217.2 32.6% 17.5%;    --secondary-foreground: 210 40% 98%;  .section-card:hover {    transform: translateY(-8px);    box-shadow: var(--shadow-gold);  }    --muted: 217.2 32.6% 17.5%;    --muted-foreground: 215 20.2% 65.1%;  .nav-link {    @apply relative px-4 py-2 text-foreground/80 transition-all duration-300;  }    --accent: 217.2 32.6% 17.5%;    --accent-foreground: 210 40% 98%;  .nav-link::after {    content: '';    @apply absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300;  }    --destructive: 0 62.8% 30.6%;    --destructive-foreground: 210 40% 98%;  .nav-link:hover {    @apply text-primary;  }  .nav-link:hover::after {    @apply w-full;  }  .hero-button {    @apply relative overflow-hidden px-8 py-4 font-semibold rounded-full transition-all duration-500;    background: var(--gradient-gold);    color: hsl(var(--primary-foreground));    box-shadow: var(--shadow-gold);  }    --border: 217.2 32.6% 17.5%;    --input: 217.2 32.6% 17.5%;    --ring: 212.7 26.8% 83.9%;    --sidebar-background: 240 5.9% 10%;    --sidebar-foreground: 240 4.8% 95.9%;    --sidebar-primary: 224.3 76.3% 48%;    --sidebar-primary-foreground: 0 0% 100%;    --sidebar-accent: 240 3.7% 15.9%;    --sidebar-accent-foreground: 240 4.8% 95.9%;    --sidebar-border: 240 3.7% 15.9%;    --sidebar-ring: 217.2 91.2% 59.8%;  .hero-button::before {    content: '';    @apply absolute inset-0 opacity-0 transition-opacity duration-300;    background: linear-gradient(135deg, hsl(38, 92%, 60%) 0%, hsl(28, 85%, 55%) 100%);  }  .hero-button:hover::before {    @apply opacity-100;  }  .hero-button:hover {    transform: translateY(-2px) scale(1.02);    box-shadow: 0 0 60px hsl(38, 92%, 50%, 0.4);  }  .hero-button span {    @apply relative z-10;  }}@layer base {  * {    @apply border-border;@layer utilities {  .animate-fade-in {    animation: fadeIn 0.8s ease-out forwards;  }  body {    @apply bg-background text-foreground;  .animate-slide-up {    animation: slideUp 0.8s ease-out forwards;  }  .animate-slide-left {    animation: slideLeft 0.8s ease-out forwards;  }  .animate-scale-in {    animation: scaleIn 0.6s ease-out forwards;  }  .animate-float {    animation: float 6s ease-in-out infinite;  }  .animate-glow {    animation: glow 2s ease-in-out infinite alternate;  }}@keyframes fadeIn {  from {    opacity: 0;  }  to {    opacity: 1;  }}@keyframes slideUp {  from {    opacity: 0;    transform: translateY(40px);  }  to {    opacity: 1;    transform: translateY(0);  }}@keyframes slideLeft {  from {    opacity: 0;    transform: translateX(40px);  }  to {    opacity: 1;    transform: translateX(0);  }}@keyframes scaleIn {  from {    opacity: 0;    transform: scale(0.9);  }  to {    opacity: 1;    transform: scale(1);  }}@keyframes float {  0%, 100% {    transform: translateY(0);  }  50% {    transform: translateY(-20px);  }}@keyframes glow {  from {    box-shadow: 0 0 20px hsl(38, 92%, 50%, 0.2);  }  to {    box-shadow: 0 0 40px hsl(38, 92%, 50%, 0.4);  }}/* Custom scrollbar */::-webkit-scrollbar {  width: 8px;}::-webkit-scrollbar-track {  background: hsl(240, 10%, 8%);}::-webkit-scrollbar-thumb {  background: hsl(38, 92%, 50%, 0.5);  border-radius: 4px;}::-webkit-scrollbar-thumb:hover {  background: hsl(38, 92%, 50%, 0.7);}
-折叠文件‎src/pages/Index.tsx‎将文件名复制到剪贴板展开所有行：src/pages/Index.tsx+33​- 6修改行数：新增 33 行，删除 6 行原始文件行号差分行号差速器线路变化@@ -1,12 +1,39 @@// Update this page (the content is just a fallback if you fail to update the page)import { useRef } from 'react';import Navigation from '@/components/Navigation';import HeroSection from '@/components/HeroSection';import WorksSection from '@/components/WorksSection';import ResumeSection from '@/components/ResumeSection';import ContactSection from '@/components/ContactSection';const Index = () => {  const worksRef = useRef<HTMLElement>(null);  const resumeRef = useRef<HTMLElement>(null);  const contactRef = useRef<HTMLElement>(null);  const scrollToSection = (section: string) => {    const refs: Record<string, React.RefObject<HTMLElement>> = {      works: worksRef,      resume: resumeRef,      contact: contactRef,    };        const targetRef = refs[section];    if (targetRef?.current) {      targetRef.current.scrollIntoView({ behavior: 'smooth' });    }  };  const handleBrowseWorks = () => {    worksRef.current?.scrollIntoView({ behavior: 'smooth' });  };  return (    <div className="flex min-h-screen items-center justify-center bg-background">      <div className="text-center">        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>      </div>    <div className="min-h-screen bg-background">      <Navigation onNavigate={scrollToSection} />      <HeroSection onBrowseWorks={handleBrowseWorks} />      <WorksSection sectionRef={worksRef} />      <ResumeSection sectionRef={resumeRef} />      <ContactSection sectionRef={contactRef} />    </div>  );};
-折叠文件‎tailwind.config.ts‎将文件名复制到剪贴板展开所有行：tailwind.config.ts+27​- 21修改行数：新增 27 行，删除 21 行原始文件行号差分行号差速器线路变化@@ -47,43 +47,49 @@ export default {          DEFAULT: "hsl(var(--card))",          foreground: "hsl(var(--card-foreground))",        },        sidebar: {          DEFAULT: "hsl(var(--sidebar-background))",          foreground: "hsl(var(--sidebar-foreground))",          primary: "hsl(var(--sidebar-primary))",          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",          accent: "hsl(var(--sidebar-accent))",          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",          border: "hsl(var(--sidebar-border))",          ring: "hsl(var(--sidebar-ring))",        gold: {          DEFAULT: "hsl(38, 92%, 50%)",          light: "hsl(38, 92%, 60%)",          dark: "hsl(38, 85%, 40%)",        },      },      fontFamily: {        display: ['Noto Sans SC', 'sans-serif'],        body: ['Noto Sans SC', 'sans-serif'],      },      borderRadius: {        lg: "var(--radius)",        md: "calc(var(--radius) - 2px)",        sm: "calc(var(--radius) - 4px)",      },      keyframes: {        "accordion-down": {          from: {            height: "0",          },          to: {            height: "var(--radix-accordion-content-height)",          },          from: { height: "0" },          to: { height: "var(--radix-accordion-content-height)" },        },        "accordion-up": {          from: {            height: "var(--radix-accordion-content-height)",          },          to: {            height: "0",          },          from: { height: "var(--radix-accordion-content-height)" },          to: { height: "0" },        },        "fade-in": {          from: { opacity: "0" },          to: { opacity: "1" },        },        "slide-up": {          from: { opacity: "0", transform: "translateY(40px)" },          to: { opacity: "1", transform: "translateY(0)" },        },        "scale-in": {          from: { opacity: "0", transform: "scale(0.95)" },          to: { opacity: "1", transform: "scale(1)" },        },      },      animation: {        "accordion-down": "accordion-down 0.2s ease-out",        "accordion-up": "accordion-up 0.2s ease-out",        "fade-in": "fade-in 0.6s ease-out forwards",        "slide-up": "slide-up 0.8s ease-out forwards",        "scale-in": "scale-in 0.5s ease-out forwards",      },    },  },
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>何亚鹏 · 作品集</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== 全局 ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  background:#05060a;
+  color:#fff;
+  scroll-behavior:smooth;
+}
+
+/* ===== 导航 ===== */
+nav{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:72px;
+  padding:0 64px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(5,6,10,.6);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+.nav-left{letter-spacing:4px;font-weight:600}
+.nav-right a{
+  color:#fff;
+  margin-left:40px;
+  text-decoration:none;
+  opacity:.8;
+}
+.nav-right a:hover{opacity:1}
+
+/* ===== 首页 ===== */
+header{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+header video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,rgba(0,0,0,.75),rgba(20,20,40,.5));
+}
+.hero{
+  position:relative;
+  z-index:1;
+  top:50%;
+  transform:translateY(-50%);
+  padding-left:100px;
+  max-width:900px;
+}
+.hero h1{
+  font-size:80px;
+  margin-bottom:24px;
+}
+.hero h2{
+  font-size:30px;
+  margin-bottom:24px;
+}
+.hero p{
+  line-height:1.9;
+  color:#d0d3da;
+}
+.hero .btn{
+  margin-top:36px;
+  display:inline-block;
+  padding:14px 44px;
+  border-radius:999px;
+  border:2px solid #fff;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* ===== 正文背景 ===== */
+.main-bg{
+  background:url("assets/images/bg-main.jpg") center/cover fixed;
+}
+
+/* ===== 板块 ===== */
+section{
+  padding:160px 0;
+}
+.block{
+  width:1400px;
+  height:800px;
+  margin:0 auto 140px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
+}
+.block img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.block::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+.block-title{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:52px;
+  letter-spacing:6px;
+  z-index:2;
+}
+
+/* ===== 详情页 ===== */
+.detail{
+  width:1400px;
+  margin:0 auto 200px;
+}
+.detail h3{
+  font-size:42px;
+  margin-bottom:32px;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  gap:32px;
+}
+.gallery img{
+  width:100%;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.3s;
+}
+.gallery img:hover{transform:scale(1.03)}
+
+/* ===== 简历 ===== */
+.resume{
+  text-align:center;
+  padding:120px 0;
+}
+.resume img{
+  width:800px;
+  max-width:90%;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+.resume a{
+  display:inline-block;
+  margin:32px 20px 0;
+  padding:14px 40px;
+  border-radius:999px;
+  border:2px solid #fff;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* ===== 联系方式 ===== */
+.contact{
+  text-align:center;
+  padding:100px 0;
+  line-height:2.2;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-left">作品集</div>
+  <div class="nav-right">
+    <a href="#works">作品展示</a>
+    <a href="#resume">查看简历</a>
+    <a href="#contact">联系方式</a>
+  </div>
+</nav>
+
+<!-- 首页 -->
+<header>
+  <video src="assets/videos/hero.mp4" autoplay muted loop playsinline></video>
+  <div class="hero">
+    <h1>你好，我是何亚鹏</h1>
+    <h2>专注平面设计与 3D 美术</h2>
+    <p>熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维软件。</p>
+    <a class="btn" href="#works">浏览作品</a>
+  </div>
+</header>
+
+<!-- 正文 -->
+<div class="main-bg" id="works">
+
+<!-- 游戏UI -->
+<section id="ui">
+  <div class="block">
+    <img src="assets/images/ui-cover.jpg">
+    <div class="block-title">游戏 UI 设计</div>
+  </div>
+
+  <div class="detail">
+    <h3>界面设计 / 交互</h3>
+    <div class="gallery">
+      <img src="assets/images/ui-1.jpg">
+      <img src="assets/images/ui-2.jpg">
+      <img src="assets/images/ui-3.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- 绘画 -->
+<section id="paint">
+  <div class="block">
+    <img src="assets/images/paint-cover.jpg">
+    <div class="block-title">绘画</div>
+  </div>
+</section>
+
+<!-- 3D -->
+<section id="d3">
+  <div class="block">
+    <img src="assets/images/d3-cover.jpg">
+    <div class="block-title">3D 设计</div>
+  </div>
+</section>
+
+<!-- 平面 -->
+<section id="graphic">
+  <div class="block">
+    <img src="assets/images/graphic-cover.jpg">
+    <div class="block-title">平面设计</div>
+  </div>
+</section>
+
+<!-- 简历 -->
+<section class="resume" id="resume">
+  <img src="assets/resume/resume.jpg">
+  <br>
+  <a href="assets/resume/resume.jpg" target="_blank">预览简历</a>
+  <a href="assets/resume/resume.jpg" download>下载简历</a>
+</section>
+
+<!-- 联系方式 -->
+<section class="contact" id="contact">
+  <p>邮箱：2855785353@qq.com</p>
+  <p>微信：HEYAPENG-H</p>
+  <p>电话：15184430418</p>
+</section>
+
+</div>
+
+</body>
+</html>
