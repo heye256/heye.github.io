@@ -1,269 +1,287 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>何亚鹏 · 作品集</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-/* ===== 全局 ===== */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
-  background:#05060a;
-  color:#fff;
-  scroll-behavior:smooth;
-}
-
-/* ===== 导航 ===== */
-nav{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:72px;
-  padding:0 64px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(5,6,10,.6);
-  backdrop-filter:blur(12px);
-  z-index:1000;
-}
-.nav-left{letter-spacing:4px;font-weight:600}
-.nav-right a{
-  color:#fff;
-  margin-left:40px;
-  text-decoration:none;
-  opacity:.8;
-}
-.nav-right a:hover{opacity:1}
-
-/* ===== 首页 ===== */
-header{
-  height:100vh;
-  position:relative;
-  overflow:hidden;
-}
-header video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,rgba(0,0,0,.75),rgba(20,20,40,.5));
-}
-.hero{
-  position:relative;
-  z-index:1;
-  top:50%;
-  transform:translateY(-50%);
-  padding-left:100px;
-  max-width:900px;
-}
-.hero h1{
-  font-size:80px;
-  margin-bottom:24px;
-}
-.hero h2{
-  font-size:30px;
-  margin-bottom:24px;
-}
-.hero p{
-  line-height:1.9;
-  color:#d0d3da;
-}
-.hero .btn{
-  margin-top:36px;
-  display:inline-block;
-  padding:14px 44px;
-  border-radius:999px;
-  border:2px solid #fff;
-  color:#fff;
-  text-decoration:none;
-}
-
-/* ===== 正文背景 ===== */
-.main-bg{
-  background:url("assets/images/bg-main.jpg") center/cover fixed;
-}
-
-/* ===== 板块 ===== */
-section{
-  padding:160px 0;
-}
-.block{
-  width:1400px;
-  height:800px;
-  margin:0 auto 140px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  cursor:pointer;
-  box-shadow:0 40px 100px rgba(0,0,0,.6);
-}
-.block img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.block::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.45);
-}
-.block-title{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:52px;
-  letter-spacing:6px;
-  z-index:2;
-}
-
-/* ===== 详情页 ===== */
-.detail{
-  width:1400px;
-  margin:0 auto 200px;
-}
-.detail h3{
-  font-size:42px;
-  margin-bottom:32px;
-}
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-  gap:32px;
-}
-.gallery img{
-  width:100%;
-  border-radius:20px;
-  cursor:pointer;
-  transition:.3s;
-}
-.gallery img:hover{transform:scale(1.03)}
-
-/* ===== 简历 ===== */
-.resume{
-  text-align:center;
-  padding:120px 0;
-}
-.resume img{
-  width:800px;
-  max-width:90%;
-  border-radius:20px;
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-}
-.resume a{
-  display:inline-block;
-  margin:32px 20px 0;
-  padding:14px 40px;
-  border-radius:999px;
-  border:2px solid #fff;
-  color:#fff;
-  text-decoration:none;
-}
-
-/* ===== 联系方式 ===== */
-.contact{
-  text-align:center;
-  padding:100px 0;
-  line-height:2.2;
-  font-size:18px;
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>何亚鹏 · 作品集</title>
+  <!-- 引入站酷快乐体和Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #14192b;
+      --deep: #232b48;
+      --accent: #7b5cff;
+      --accent2: #29d8fd;
+      --glass: rgba(255,255,255,0.07);
+      --radius: 22px;
+    }
+    html,body{margin:0;padding:0;min-height:100vh;width:100vw;background:linear-gradient(180deg,#181f32,#21284c 85%)}
+    body{font-family:Montserrat,'PingFang SC',sans-serif;color:#eaf3ff;}
+    /* NAV */
+    .navbar{position:fixed;z-index:99;left:0;right:0;top:0;height:64px;padding:0 7vw;background:rgba(18,20,31, .84);backdrop-filter:blur(5px);box-shadow:0 2px 16px rgba(18,10,40,.08);display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{font-family: 'ZCOOL KuaiLe',monospace;font-size:2rem;color:#fff;letter-spacing:.15em;pointer-events:none;}
+    .nav-right{display:flex;gap:24px;}
+    .nav-btn{background:none;border:0;color:#fff;padding:7px 20px;font-weight:700;border-radius:12px;font-size:1.08rem;cursor:pointer;transition:.2s;}
+    .nav-btn:hover{background:var(--accent);color:#fff;}
+    /* 首页主场景 */
+    .hero{position:relative;display:flex;align-items:center;min-height:100vh;width:100vw;overflow:hidden;}
+    .hero-bgvideo{position:absolute;z-index:0;top:0;left:0;width:100vw;height:100vh;object-fit:cover;filter:brightness(.68) blur(1px);}
+    .hero-overlay{position:absolute;z-index:1;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(120deg,rgba(22,22,42,0.6) 30%,transparent);}
+    .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:78vh;padding-left:7vw;}
+    .hero-title{font-family:'ZCOOL KuaiLe',sans-serif;font-size:80px;font-weight:bold;margin-bottom:12px;color:#fff;letter-spacing:.1em;}
+    .hero-sub{font-size:2em;color:#b6e4ff;font-weight:600;margin-bottom:8px;}
+    .hero-desc{font-size:1.22em;max-width:550px;line-height:1.9;color:#e1eafd;margin-bottom:26px;}
+    .hero-actions{margin-top:16px;}
+    .hero-btn{font-size:1.15rem;padding:12px 34px;border-radius:60px;font-weight:bold;background:linear-gradient(90deg,var(--accent), var(--accent2));color:#202044;border:0;box-shadow:0 2px 20px rgba(41,124,255,.17);cursor:pointer;transition:.17s;}
+    .hero-btn:hover{transform:translateY(-2px) scale(1.04);}
+    /* 板块 */
+    .main-content{padding:98px 0 50px 0;display:flex;flex-direction:column;align-items:center;background:linear-gradient(170deg,#232746 60%,#29356b 100%);}
+    .sections{display:flex;flex-direction:column;gap:38px;margin-top:26px;width:100%;align-items:center;max-width:1100px;}
+    .section-card{width:700px;max-width:90vw;min-height:198px;display:flex;align-items:center;border-radius:var(--radius);position:relative;overflow:hidden;margin:0 auto;background:var(--glass);box-shadow:0 7px 50px 0 rgba(41,216,253,.13),0 2.5px 9px rgba(45,0,101,.08);cursor:pointer;transition:box-shadow .22s,transform .18s;}
+    .section-card:hover{box-shadow:0 14px 60px 0 rgba(123,92,255,.18); transform:translateY(-8px) scale(1.03);}
+    .section-bg{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;filter:brightness(.68) saturate(1.17) blur(2px);}
+    .section-content{position:relative;z-index:2;padding-left:42px;}
+    .section-title{font-family:'ZCOOL KuaiLe',sans-serif;font-size:2.1em;letter-spacing:.03em;color:#fff;}
+    .section-desc{font-size:1.16em;color:#eaf2ff;margin-top:8px;font-weight:400;}
+    /* 3d子项 */
+    .section-card[data-cat="3d"] .subitems{margin:8px 0 0 0;display:flex;gap:18px;}
+    .subitem{background:rgba(44,216,255,.13);padding:2px 13px 2px 13px;border-radius:9px;color:#a0efff;font-size:.98em;margin-right:2px;}
+    /* 简历区 */
+    .resume{padding:65px 0 36px 0;background:linear-gradient(110deg,#161b26 81%,#3e3f85 260%);}
+    .resume-center{display:flex;flex-direction:column;align-items:center;}
+    .resume-title{font-size:1.5em;font-family:'Montserrat',sans-serif;font-weight:bold;margin-bottom:18px;}
+    .resume-actions{display:flex;gap:30px;}
+    .resume-btn{padding:13px 38px;border-radius:18px;font-size:1.1rem;font-weight:700; background:linear-gradient(90deg,var(--accent2),var(--accent));color:#181f2c;border:0;cursor:pointer;transition:background .14s;}
+    .resume-btn:hover{background:linear-gradient(90deg,var(--accent),var(--accent2));}
+    .resume-modal{display:none;position:fixed;z-index:99;top:0;left:0;right:0;bottom:0;background:rgba(14,20,38,0.97);align-items:center;justify-content:center;}
+    .resume-modal.active{display:flex;}
+    .resume-img{max-width:90vw;max-height:88vh;border-radius:19px;box-shadow:0 18px 100px #29d8fd77;}
+    .close-modal{position:absolute;top:24px;right:60px;font-size:2.8em;color:#29d8fd;background:none;border:0;cursor:pointer;}
+    /* 联系方式 */
+    .contact{background:linear-gradient(109deg,#232b48 70%,#3c4a72);padding:67px 0 90px 0;text-align:center;}
+    .contact-title{font-family:'ZCOOL KuaiLe',sans-serif;font-size:1.6em;margin-bottom:18px;}
+    .contact-info{color:#fff;font-size:1.24em;font-weight:bold;background:rgba(255,255,255,0.06);display:inline-block;padding:16px 30px;border-radius:15px;box-shadow:0 8px 32px #29d8fd22;}
+    .contact-info a{color:#a2deff;text-decoration:none;}
+    @media (max-width:900px){
+      .hero-title{font-size:45px;}
+      .main-content{padding-top:52px;}
+      .section-card{width:97vw;}
+      .navbar{padding:0 15px;}
+      .section-content{padding-left:18px;}
+    }
+    @media (max-width:650px){
+      .hero-content{padding-left:3vw;}
+      .hero-title{font-size:28px;}
+      .navbar{height:44px;}
+      .section-card{min-height:122px;}
+    }
+  </style>
 </head>
-
 <body>
-
-<nav>
-  <div class="nav-left">作品集</div>
-  <div class="nav-right">
-    <a href="#works">作品展示</a>
-    <a href="#resume">查看简历</a>
-    <a href="#contact">联系方式</a>
-  </div>
-</nav>
-
-<!-- 首页 -->
-<header>
-  <video src="assets/videos/hero.mp4" autoplay muted loop playsinline></video>
-  <div class="hero">
-    <h1>你好，我是何亚鹏</h1>
-    <h2>专注平面设计与 3D 美术</h2>
-    <p>熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维软件。</p>
-    <a class="btn" href="#works">浏览作品</a>
-  </div>
-</header>
-
-<!-- 正文 -->
-<div class="main-bg" id="works">
-
-<!-- 游戏UI -->
-<section id="ui">
-  <div class="block">
-    <img src="assets/images/ui-cover.jpg">
-    <div class="block-title">游戏 UI 设计</div>
-  </div>
-
-  <div class="detail">
-    <h3>界面设计 / 交互</h3>
-    <div class="gallery">
-      <img src="assets/images/ui-1.jpg">
-      <img src="assets/images/ui-2.jpg">
-      <img src="assets/images/ui-3.jpg">
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-logo">作品集</div>
+    <div class="nav-right">
+      <button class="nav-btn" onclick="scrollToPart('main-content')">作品展示</button>
+      <button class="nav-btn" onclick="scrollToPart('resume')">查看简历</button>
+      <button class="nav-btn" onclick="scrollToPart('contact')">联系方式</button>
+    </div>
+  </nav>
+  <!-- 首页 -->
+  <section class="hero">
+  <video class="hero-bgvideo" src="assets/002.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-title">你好，我是何亚鹏</div>
+    <div class="hero-sub">专注平面设计与3D美术</div>
+    <div class="hero-desc">
+      熟悉PS、AI、Maya，Substance Painter，Zbrush，Marvelous Designer，Nuke等平面设计软件和三维动画制作软件。
+    </div>
+    <div class="hero-actions">
+      <button class="hero-btn" onclick="scrollToPart('main-content')">浏览作品</button>
     </div>
   </div>
 </section>
-
-<!-- 绘画 -->
-<section id="paint">
-  <div class="block">
-    <img src="assets/images/paint-cover.jpg">
-    <div class="block-title">绘画</div>
-  </div>
-</section>
-
-<!-- 3D -->
-<section id="d3">
-  <div class="block">
-    <img src="assets/images/d3-cover.jpg">
-    <div class="block-title">3D 设计</div>
-  </div>
-</section>
-
-<!-- 平面 -->
-<section id="graphic">
-  <div class="block">
-    <img src="assets/images/graphic-cover.jpg">
-    <div class="block-title">平面设计</div>
-  </div>
-</section>
-
-<!-- 简历 -->
-<section class="resume" id="resume">
-  <img src="assets/resume/resume.jpg">
-  <br>
-  <a href="assets/resume/resume.jpg" target="_blank">预览简历</a>
-  <a href="assets/resume/resume.jpg" download>下载简历</a>
-</section>
-
-<!-- 联系方式 -->
-<section class="contact" id="contact">
-  <p>邮箱：2855785353@qq.com</p>
-  <p>微信：HEYAPENG-H</p>
-  <p>电话：15184430418</p>
-</section>
-
+<!-- 首页下方背景图 -->
+<div class="custom-bgimg-wrap">
+  <img src="assest/image/beijijn/背景.png" alt="页面背景图" class="custom-bgimg">
 </div>
+  <!-- 四大板块 -->
+  <main class="main-content" id="main-content">
+    <div class="sections">
+      <div class="section-card" data-index="0" onclick="openDetail(0)">
+        <img class="section-bg" src="assets/image/UI/ui.png" alt="">
+        <div class="section-content">
+          <div class="section-title">游戏UI设计</div>
+          <div class="section-desc">高品质游戏界面、交互与视觉动效专属设计。</div>
+        </div>
+      </div>
+      <div class="section-card" data-index="1" onclick="openDetail(1)">
+  <img class="section-bg" src="assets/image/huihua/huihua.png" alt="">
+  <div class="section-content">
+    <div class="section-title">绘画</div>
+    <div class="section-desc">概念插画、角色、场景与美术整合表现。</div>
+  </div>
+</div>
+      <div class="section-card" data-index="2" data-cat="3d" onclick="openDetail(2)">
+        <img class="section-bg" src="assets/image/3d/3dshwji.png" alt="">
+        <div class="section-content">
+          <div class="section-title">3D设计</div>
+          <div class="subitems">
+            <div class="subitem">建模</div>
+            <div class="subitem">材质贴图</div>
+            <div class="subitem">渲染</div>
+            <div class="subitem">三维动画</div>
+          </div>
+          <div class="section-desc">影视级模型、动画、场景等完整工作流程。</div>
+        </div>
+      </div>
+      <div class="section-card" data-index="3" onclick="openDetail(3)">
+        <img class="section-bg" src="assets/image/2d/pinmian.png" alt="">
+        <div class="section-content">
+          <div class="section-title">平面设计</div>
+          <div class="section-desc">品牌视觉、海报、LOGO与VI系统整合设计。</div>
+        </div>
+      </div>
+    </div>
+  </main>
 
+  <!-- 详情页弹出层 -->
+  <div id="detail-modal" style="display:none;position:fixed;inset:0;z-index:99;background:rgba(5,8,22,0.97)">
+    <div style="max-width:1100px;margin:48px auto;position:relative;">
+      <button onclick="closeDetail()" style="position:absolute;right:0;top:-40px;background:none;border:0;color:#29d8fd;font-size:2.6em;cursor:pointer;">×</button>
+      <div id="detail-title" style="font-family:'ZCOOL KuaiLe',sans-serif;font-size:2em;color:#fff;font-weight:bold;margin-bottom:18px;margin-top:12px;"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-start;" id="detail-imgs"></div>
+    </div>
+    <!-- 图片放大 -->
+    <div id="img-modal" style="display:none;position:fixed;inset:0;background:rgba(7,13,34,0.94);z-index:299;align-items:center;justify-content:center;">
+      <button onclick="closeImgModal()" style="position:absolute;top:28px;right:88px;font-size:2.8em;color:#29d8fd;background:none;border:0;cursor:pointer;z-index:10;">×</button>
+      <img id="zoom-img" src="" style="max-width:90vw;max-height:89vh;border-radius:20px;box-shadow:0 18px 80px #29d8fd77;" />
+    </div>
+  </div>
+
+  <!-- 简历区 -->
+  <section class="resume" id="resume">
+    <div class="resume-center">
+      <div class="resume-title">个人简历</div>
+      <div class="resume-actions">
+        <button class="resume-btn" onclick="showResumeModal()">预览简历</button>
+        <a class="resume-btn" href="https://cdn.jsdelivr.net/gh/heye256/static-resume/my-resume.jpg" download="何亚鹏-简历.jpg">下载简历图片</a>
+      </div>
+    </div>
+    <!-- 简历预览弹窗 -->
+    <div class="resume-modal" id="resume-modal">
+      <button class="close-modal" onclick="hideResumeModal()">×</button>
+      <img class="resume-img" src="https://cdn.jsdelivr.net/gh/heye256/static-resume/my-resume.jpg" alt="简历图片"/>
+    </div>
+  </section>
+  <!-- 联系方式 -->
+  <section class="contact" id="contact">
+    <div class="contact-title">联系方式</div>
+    <div class="contact-info">
+      <div>邮箱：<a href="mailto:2855785353@qq.com">2855785353@qq.com</a></div>
+      <div>微信：HEYAPENG-H</div>
+      <div>电话：15184430418</div>
+    </div>
+  </section>
+  <script>
+    // 导航滚动
+    function scrollToPart(id){
+      const d = document.getElementById(id);
+      d && d.scrollIntoView({behavior:'smooth'});
+    }
+    // 板块详情弹窗数据
+    const details=[
+      {
+        title:'游戏UI设计',
+        imgs:[
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        title:'绘画',
+        imgs:[
+          "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1501735978104-9f7b6639d2f5?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1526318472351-c75fcf0700d4?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        title:'3D设计',
+        imgs:[
+          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        title:'平面设计',
+        imgs:[
+          "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=80"
+        ]
+      }
+    ];
+    // 打开详情弹窗
+    let currentDetail=0;
+    function openDetail(idx){
+      currentDetail=idx;
+      document.getElementById('detail-title').textContent=details[idx].title;
+      document.getElementById('detail-imgs').innerHTML=details[idx].imgs.map((img,i)=>`<img src="${img}" style="width:260px;height:180px;object-fit:cover;border-radius:14px;cursor:pointer;box-shadow:0 4px 26px #203;" onclick="zoomImg('${img}')">`).join('');
+      document.getElementById('detail-modal').style.display='block';
+      document.body.style.overflow='hidden';
+    }
+    function closeDetail(){
+      document.getElementById('detail-modal').style.display='none';
+      document.body.style.overflow='';
+    }
+    // 详情页：上下滚轮切换
+    document.getElementById('detail-modal').addEventListener('wheel',function(e){
+      if(e.deltaY>40 && currentDetail<3){openDetail(currentDetail+1);}
+      if(e.deltaY<-40 && currentDetail>0){openDetail(currentDetail-1);}
+      e.preventDefault();
+    },{passive:false});
+    // 键盘切换
+    document.addEventListener('keydown',function(e){
+      const dm = document.getElementById('detail-modal');
+      if(dm.style.display==='block'){
+        if(e.key==='ArrowDown' && currentDetail<3) openDetail(currentDetail+1);
+        if(e.key==='ArrowUp' && currentDetail>0) openDetail(currentDetail-1);
+        if(e.key==='Escape') closeDetail();
+      }
+    });
+    // 图片放大
+    function zoomImg(url){
+      const m=document.getElementById('img-modal'),i=document.getElementById('zoom-img');
+      i.src=url; m.style.display='flex';
+    }
+    function closeImgModal(){
+      document.getElementById('img-modal').style.display='none';
+      document.getElementById('zoom-img').src='';
+    }
+    // 简历预览
+    function showResumeModal(){
+      document.getElementById('resume-modal').classList.add('active');
+      document.body.style.overflow='hidden';
+    }
+    function hideResumeModal(){
+      document.getElementById('resume-modal').classList.remove('active');
+      document.body.style.overflow='';
+    }
+    // 自动关闭弹窗
+    document.getElementById('resume-modal').addEventListener('click',e=>{
+      if(e.target===e.currentTarget) hideResumeModal();
+    });
+    document.getElementById('img-modal').addEventListener('click',e=>{
+      if(e.target===e.currentTarget) closeImgModal();
+    });
+    // 关闭详情页也关闭大图弹窗
+    document.getElementById('detail-modal').addEventListener('click',e=>{
+      if(e.target===e.currentTarget) closeDetail();
+    });
+  </script>
 </body>
 </html>
