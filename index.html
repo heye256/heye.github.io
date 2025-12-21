@@ -3,60 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>何亚鹏 · 作品集</title>
+<title>何亚鹏｜作品集</title>
 
 <!-- 字体 -->
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ================= 基础变量 ================= */
 :root{
-  --bg:#0e111a;
-  --accent:#7b5cff;
-  --accent2:#29d8fd;
-  --radius:32px;
+  --bg:#0b0f1a;
+  --panel:#11162a;
+  --accent:#5f7cff;
+  --accent-soft:#9bb2ff;
+  --text:#ffffff;
+  --muted:#b7c3ff;
+  --radius:28px;
 }
+
 *{box-sizing:border-box}
 html,body{
   margin:0;
   padding:0;
   font-family:Montserrat,'PingFang SC',sans-serif;
   background:var(--bg);
-  color:#fff;
+  color:var(--text);
   scroll-behavior:smooth;
 }
 
-/* ================= NAV ================= */
-.navbar{
+/* ================= 导航 ================= */
+nav{
   position:fixed;
-  top:0;left:0;right:0;
-  height:70px;
+  inset:0 0 auto 0;
+  height:68px;
   padding:0 7vw;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:100;
-  background:rgba(10,12,25,.75);
+  background:rgba(10,14,30,.78);
   backdrop-filter:blur(14px);
+  z-index:100;
 }
-.nav-logo{
+
+nav .logo{
   font-family:'ZCOOL KuaiLe';
   font-size:26px;
-  letter-spacing:.2em;
-  pointer-events:none;
+  letter-spacing:.18em;
 }
-.nav-right button{
+
+nav .menu button{
   background:none;
   border:0;
   color:#fff;
+  margin-left:28px;
   font-size:15px;
   font-weight:600;
-  padding:8px 20px;
-  border-radius:16px;
   cursor:pointer;
+  opacity:.85;
 }
-.nav-right button:hover{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-}
+nav .menu button:hover{opacity:1}
 
 /* ================= HERO ================= */
 .hero{
@@ -70,116 +74,126 @@ html,body{
   width:100%;
   height:100%;
   object-fit:cover;
+  filter:brightness(.8);
 }
 .hero::after{
   content:'';
   position:absolute;
   inset:0;
-  background:
-    radial-gradient(circle at 30% 50%,rgba(0,0,0,.15),rgba(0,0,0,.6));
+  background:linear-gradient(
+    120deg,
+    rgba(10,15,35,.65) 25%,
+    rgba(10,15,35,.35) 55%,
+    rgba(10,15,35,.1) 80%,
+    transparent
+  );
 }
+
 .hero-content{
   position:relative;
   z-index:2;
-  padding-left:7vw;
   height:100%;
+  padding-left:7vw;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
-.hero-title{
+
+.hero h1{
   font-family:'ZCOOL KuaiLe';
-  font-size:80px;
-  text-shadow:0 8px 30px rgba(0,0,0,.45);
+  font-size:78px;
+  margin:0;
 }
-.hero-sub{
-  font-size:28px;
-  margin:16px 0;
-  color:#b7e7ff;
+.hero h2{
+  margin:18px 0;
+  font-size:30px;
+  color:var(--muted);
 }
-.hero-desc{
-  max-width:580px;
+.hero p{
+  max-width:560px;
   line-height:1.9;
   font-size:18px;
-  opacity:.9;
+  opacity:.95;
 }
-.hero-btn{
-  margin-top:36px;
-  padding:16px 42px;
-  border-radius:40px;
-  font-size:18px;
+.hero button{
+  margin-top:34px;
+  padding:14px 36px;
+  font-size:16px;
   font-weight:700;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#0e111a;
+  border-radius:40px;
   border:0;
   cursor:pointer;
-  transition:.3s;
+  background:linear-gradient(90deg,var(--accent),var(--accent-soft));
+  color:#0b1020;
 }
-.hero-btn:hover{transform:translateY(-2px)}
 
-/* ================= PAGE BG ================= */
+/* ================= 页面背景 ================= */
 .page-bg{
-  background:url("assets/image/beijing/shenlian.png") center/cover fixed;
+  background:
+    linear-gradient(180deg,rgba(11,15,26,.92),rgba(11,15,26,.92)),
+    url("assets/image/beijijn/shhenlian.png") center/cover fixed;
 }
 
-/* ================= SECTIONS ================= */
-.main-content{
+/* ================= 作品板块 ================= */
+.main{
   padding:120px 0;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:80px;
+  gap:70px;
 }
-.section-card{
+
+.work{
   width:1400px;
   height:800px;
   max-width:92vw;
-  border-radius:var(--radius);
   position:relative;
+  border-radius:var(--radius);
   overflow:hidden;
   cursor:pointer;
   transition:.5s cubic-bezier(.4,0,.2,1);
 }
-.section-card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.15),
-    transparent 60%
-  );
+.work:hover{
+  transform:translateY(-18px) scale(1.02);
 }
-.section-card:hover{
-  transform:translateY(-14px) scale(1.02);
-}
-.section-card img{
+
+.work img{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .6s ease;
+  filter:brightness(.9);
 }
-.section-card:hover img{transform:scale(1.05)}
 
-.section-info{
+.work::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.2),
+    transparent
+  );
+}
+
+.work-info{
   position:absolute;
   left:60px;
   bottom:60px;
-  z-index:2;
 }
-.section-info h2{
+.work-info h3{
   font-family:'ZCOOL KuaiLe';
-  font-size:48px;
+  font-size:44px;
   margin:0;
 }
-.section-info p{
+.work-info p{
   margin-top:10px;
   font-size:18px;
-  color:#e4f6ff;
+  color:#dce4ff;
 }
+
 .tags{
   margin-top:14px;
   display:flex;
@@ -187,132 +201,126 @@ html,body{
 }
 .tag{
   padding:6px 14px;
-  border-radius:14px;
-  background:rgba(41,216,253,.18);
+  border-radius:12px;
+  background:rgba(95,124,255,.18);
   font-size:14px;
 }
 
-/* ================= DETAIL ================= */
+/* ================= 详情页 ================= */
 #detail{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(6,8,20,.96);
+  background:rgba(6,9,22,.96);
   z-index:200;
-  overflow:auto;
 }
 .detail-wrap{
   max-width:1200px;
-  margin:120px auto;
+  margin:90px auto;
 }
 .detail-title{
   font-family:'ZCOOL KuaiLe';
-  font-size:46px;
-  margin-bottom:40px;
+  font-size:42px;
+  margin-bottom:28px;
 }
 .detail-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:26px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
 }
 .detail-grid img{
-  width:100%;
-  height:180px;
+  width:300px;
+  height:200px;
   object-fit:cover;
-  border-radius:18px;
+  border-radius:16px;
   cursor:zoom-in;
-  transition:.3s;
-}
-.detail-grid img:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px rgba(0,0,0,.4);
 }
 .close{
-  position:fixed;
+  position:absolute;
   top:30px;
   right:60px;
-  font-size:42px;
+  font-size:38px;
   cursor:pointer;
 }
 
-/* ================= RESUME ================= */
-.resume,.contact{
+/* ================= 简历 ================= */
+.resume{
   padding:120px 0;
   text-align:center;
 }
-.resume h2{font-size:36px}
+.resume h2{
+  font-size:34px;
+}
 .resume button,.resume a{
-  margin:24px;
-  padding:14px 42px;
+  margin:20px;
+  padding:14px 36px;
   font-size:18px;
   font-weight:700;
-  border-radius:22px;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  color:#0e111a;
+  border-radius:20px;
   border:0;
   cursor:pointer;
+  background:linear-gradient(90deg,var(--accent-soft),var(--accent));
+  color:#0b1020;
   text-decoration:none;
 }
 
-/* ================= CONTACT ================= */
+/* ================= 联系 ================= */
+.contact{
+  padding:120px 0;
+  text-align:center;
+}
 .contact p{
   font-size:20px;
   line-height:2;
-  opacity:.9;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar">
-  <div class="nav-logo">作品集</div>
-  <div class="nav-right">
-    <button onclick="scrollToId('works')">作品展示</button>
-    <button onclick="scrollToId('resume')">查看简历</button>
-    <button onclick="scrollToId('contact')">联系方式</button>
+<nav>
+  <div class="logo">作品集</div>
+  <div class="menu">
+    <button onclick="scrollToId('works')">作品</button>
+    <button onclick="scrollToId('resume')">简历</button>
+    <button onclick="scrollToId('contact')">联系</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="assets/002.mp4" type="video/mp4">
-  </video>
+  <video autoplay muted loop playsinline src="assets/002.mp4"></video>
   <div class="hero-content">
-    <div class="hero-title">你好，我是何亚鹏</div>
-    <div class="hero-sub">我主投 UI / 3D / 综合设计</div>
-    <div class="hero-desc">
-      熟悉 PS、AI、Substance Painter、ZBrush、Marvelous Designer、Nuke 等设计与三维制作流程。
-    </div>
-    <button class="hero-btn" onclick="scrollToId('works')">浏览作品</button>
+    <h1>你好，我是何亚鹏</h1>
+    <h2>我主投 UI / 3D / 综合设计</h2>
+    <p>熟悉 UI 设计与完整 3D 制作流程，涵盖建模、材质、渲染与动画，专注游戏与视觉表现。</p>
+    <button onclick="scrollToId('works')">浏览作品</button>
   </div>
 </section>
 
 <div class="page-bg">
 
-<section class="main-content" id="works">
-  <div class="section-card" onclick="openDetail(0)">
+<section class="main" id="works">
+
+  <div class="work" onclick="openDetail(0)">
     <img src="assets/image/UI/ui.png">
-    <div class="section-info">
-      <h2>游戏 UI 设计</h2>
-      <p>界面 · 交互 · 动效</p>
+    <div class="work-info">
+      <h3>游戏 UI 设计</h3>
+      <p>界面 / 交互 / 动效</p>
     </div>
   </div>
 
-  <div class="section-card" onclick="openDetail(1)">
+  <div class="work" onclick="openDetail(1)">
     <img src="assets/image/huihua/huihua.png">
-    <div class="section-info">
-      <h2>绘画</h2>
-      <p>角色 · 场景 · 概念</p>
+    <div class="work-info">
+      <h3>绘画</h3>
+      <p>角色 / 场景 / 概念</p>
     </div>
   </div>
 
-  <div class="section-card" onclick="openDetail(2)">
+  <div class="work" onclick="openDetail(2)">
     <img src="assets/image/3d/3dshwji.png">
-    <div class="section-info">
-      <h2>3D 设计</h2>
+    <div class="work-info">
+      <h3>3D 设计</h3>
       <div class="tags">
         <span class="tag">建模</span>
         <span class="tag">材质</span>
@@ -322,18 +330,19 @@ html,body{
     </div>
   </div>
 
-  <div class="section-card" onclick="openDetail(3)">
+  <div class="work" onclick="openDetail(3)">
     <img src="assets/image/2d/pinmian.png">
-    <div class="section-info">
-      <h2>平面设计</h2>
-      <p>品牌 · 海报 · 视觉系统</p>
+    <div class="work-info">
+      <h3>平面设计</h3>
+      <p>品牌 / 海报 / 视觉系统</p>
     </div>
   </div>
+
 </section>
 
 <section class="resume" id="resume">
   <h2>个人简历</h2>
-  <a href="assets/resume/resume.jpg" target="_blank">在线预览</a>
+  <button>在线预览</button>
   <a href="assets/resume/resume.jpg" download>下载简历</a>
 </section>
 
@@ -348,7 +357,7 @@ html,body{
 </div>
 
 <div id="detail">
-  <div class="close" onclick="closeDetail()">×</div>
+  <div class="close" onclick="detail.style.display='none'">×</div>
   <div class="detail-wrap">
     <div class="detail-title" id="detailTitle"></div>
     <div class="detail-grid" id="detailImgs"></div>
@@ -357,10 +366,10 @@ html,body{
 
 <script>
 const data=[
- {title:'游戏 UI 设计',imgs:['assets/image/ui/1.jpg','assets/image/ui/2.jpg']},
- {title:'绘画',imgs:['assets/image/painting/1.jpg','assets/image/painting/2.jpg']},
- {title:'3D 设计',imgs:['assets/image/3d/1.jpg','assets/image/3d/2.jpg']},
- {title:'平面设计',imgs:['assets/image/graphic/1.jpg','assets/image/graphic/2.jpg']}
+  {title:'游戏 UI 设计',imgs:['assets/image/ui/1.jpg','assets/image/ui/2.jpg']},
+  {title:'绘画',imgs:['assets/image/painting/1.jpg','assets/image/painting/2.jpg']},
+  {title:'3D 设计',imgs:['assets/image/3d/1.jpg','assets/image/3d/2.jpg']},
+  {title:'平面设计',imgs:['assets/image/graphic/1.jpg','assets/image/graphic/2.jpg']}
 ];
 
 function openDetail(i){
@@ -368,7 +377,6 @@ function openDetail(i){
   detailTitle.innerText=data[i].title;
   detailImgs.innerHTML=data[i].imgs.map(img=>`<img src="${img}">`).join('');
 }
-function closeDetail(){detail.style.display='none'}
 function scrollToId(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
